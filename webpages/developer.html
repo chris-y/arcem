@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ArcEm - The Acorn System Emulator</title>
+<style type="text/css">
+<!--
+/* Colour scheme is based on the 3 colours of the classic Archimedes logo */
+
+h3 {
+  background-color: #CCFFFF;
+}
+
+h4 {
+  background-color: #FFFFCC;
+}
+
+.red {
+  background-color: #FFCCCC;
+}
+
+.Y {
+  background-color: #CCFFCC;
+}
+
+.N {
+  background-color: #FFCCCC;
+}
+-->
+</style>
+</head>
+<body>
+<table width="100%">
+  <tr>
+    <td><img alt="ArcEm Logo" src="arcemlogo.png"></td>
+    <td>
+      <h1>ArcEm - The Acorn System Emulator</h1>
+    </td>
+  </tr>
+</table>
+<table width="100%" cellspacing="5" cellpadding="5">
+  <tr>
+    <td valign="top" class="red">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top"> - <a href="#news">News</a><br>
+		   - <a href="#resources">Developer Resources</a><br>
+		   - <a href="#featurematrix">Feature Matrix</a><br>
+            <br>
+            <p><b>Project&nbsp;Links:</b></p>
+            - <a href="http://sourceforge.net/projects/arcem/">Sourceforge Page</a><br>
+            - <a href="index.html">Main Page</a><br>
+            - <a href="screenshots.html">Screenshots</a><br>
+            - <a href="manual.html">User Manual</a>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top" align="center"> <a target="_top" href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=36764" width="88" height="31" border="0" alt="SourceForge Logo"></a> </td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">
+      <h3>Developer Aims and Future plans</h3>
+      <p>Here are a few things we're looking to work on in the future, if you're interested in helping with any of these, drop us a line on the <a href="#devmailinglist">developer mailing list</a></p>
+      <ul>
+        <li>Easier to port to more platforms</li>
+        <li>Easier for the end user to use</li>
+        <li>Support more hardware
+          <ul>
+            <li>A5000 level machines</li>
+            <li>Risc PC level machines</li>
+          </ul>
+        </li>
+        <li>Tidier, making the code easier to bug fix and maintain</li>
+        <li>Faster, investigate the use of a JIT or rolling support into the QEMU project.</li>
+		<li>Additional features, including networking.</li>
+      </ul>
+      <a name="news"><h3>News</h3></a>
+	  <h4>26 March 2006 - Catchup</h4>
+	  <p>Try the latest CVS build for a range of new features. HostFS lets you put asside a directory on your host hard drive to use as the root of a RISC OS filing system, makes it very easy to get files on and off the system. Try out the new sound support, relive the nightmare of the 'foop' startup beep. Try out extra RISC OS enhancements like big screen modes and scroll wheel mouse support. You can now emulate an ARM3 (as opposed to an ARM250) processor, though this has no effect on speed.</p>
+      <a name="resources"><h3>Developer Resources</h3></a>      <h4>Compilation Instructions</h4>
+      <p>The <a href="manual.html">User Manual</a> contains a section on how
+        to compile each platforms version.</p>
+      <h4>Sourceforge Project Page</h4>
+      <p>The <a href="http://sourceforge.net/projects/arcem/">Sourceforge Project
+          Page</a> contains many useful pages, including the <a href="http://sourceforge.net/tracker/?group_id=36764&atid=417588">Bug
+          Tracker</a>, <a href="">List of releases</a>, <a href="http://sourceforge.net/cvs/?group_id=36764">CVS access information</a>
+          and a <a href="http://cvs.sourceforge.net/viewcvs.py/arcem/arcem/">source code viewer</a>.</p>
+      <a name="devmailinglist"><h4>Devloper Mailing list</h4></a>
+      <p>Want to keep up to date with new features being added? Want to help
+        out? Join the <a href="http://lists.sourceforge.net/lists/listinfo/arcem-devel">developer
+        mailing list</a> and speak directly to those involved. You can also read
+        through the <a href="http://sourceforge.net/mailarchive/forum.php?forum_id=32773">archive
+        of messages</a>.</p>
+      <a name="cvsmailinglist"><h4>CVS Mailing list</h4></a>
+      <p>You can also join a mailing list to keep track of CVS commits to the
+        project. Sign up <a href="http://lists.sourceforge.net/lists/listinfo/arcem-cvs">here</a> and read the archive <a href="http://sourceforge.net/mailarchive/forum.php?forum=arcem-cvs">here</a>.</p>
+      <h4>Datasheet Archive</h4>
+      <p>A collection of datasheets and technical information on the Archimedes
+        and later hardware has been <a href="http://www.home.marutan.net/arcemdocs/">collected
+        together</a>. Please have a look at the wanted list and see if you can
+        contribute.</p>
+      <a name="featurematrix"><h3>Feature Matrix</h3></a>      <p>This is a table of what features are supported on which platform based
+        on the current state of the CVS HEAD.</p>
+      <table border="1">
+        <tr>
+          <th>&nbsp;</th>
+          <th>X Windows</th>
+          <th>MS Windows</th>
+          <th>Mac OS X</th>
+          <th>RISC OS</th>
+          <th>GP2X</th>
+          <th>Amiga</th>
+        </tr>
+        <tr>
+          <th>ExtnROM</th>
+          <td class="Y">Y</td>
+          <td class="Y">Y</td>
+          <td class="Y">Y</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="Y">Y</td>
+        </tr>
+        <tr>
+          <th>HostFS</th>
+          <td class="Y">Y</td>
+          <td class="N">N</td>
+          <td class="Y">Y</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="Y">Y</td>
+        </tr>
+        <tr>
+          <th>Gfx > 800x600</th>
+          <td class="Y">Y</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="Y">Y</td>
+        </tr>
+        <tr>
+          <th>Sound Support</th>
+          <td class="Y">Y [1]</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+          <td class="N">N</td>
+        </tr>
+        <!--
+	  <tr>
+	   <th></th><td></td><td></td><td></td><td></td><td></td>
+	  </tr>
+-->
+      </table>
+      <p>[1] - Requires pthread library and OSS sound API.</p>
+      <p> - List things wanted before next release<br>
+        - Windows Mouse movement fixed<br>
+        - Expand config file forma</p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
