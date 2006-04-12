@@ -136,7 +136,7 @@ Once installed all versions require a ROM image file, see below
 stack 500000
 make SYSTEM=amiga
 </pre>
-   It will not compile with libraries other than the OS4 includes. GCC 3.4.4 is known to work.
+   It will not compile with libraries other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.
     </p>
   </li>
 </ul>
@@ -218,7 +218,7 @@ using this command.
     <p><font color="#FF0000">TODO</font></p>
   </li>
   <li><b>Amiga</b>
-    <p>The Amiga version runs fill-screen and captures all mouse input until you quit the program. You can quit the program from the menu you can bring up with the Left Amiga key.</p>
+    <p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit the program from the menu you can bring up with the Left Amiga key.</p>
   </li>
 </ul>
 <a name="floppies">
@@ -250,7 +250,7 @@ using this command.
 </li>
 <a name="HDimages">
 <h4>Using HD images</h4>
-</a><p>ArcEm supports up to 2 Harddiscs's, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
+</a><p>ArcEm supports up to 2 Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
 HardImage1<br>
 HardImage2<br>
 You also need to specify the hard drive "shape" in the arcemrc config file. The "shape" lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
@@ -313,7 +313,7 @@ MFM disc
 <p>Known Issues:</p>
 <ul>
  <li>Does not work at all on Windows/RISC OS/GP2X builds of ArcEm.</li>
- <li>Files on the host side are not allowed to have dots in the filename, eg 'textfile.txt' would not work, but 'textfile' would be fine.
+ <li>Files on the host side are not allowed to have dollars in the filename, eg 'textfile$' would not work, but 'textfile' would be fine.
  <li>Errors that occur when performing actions on the host filing system are often not well reported under RISC OS.</p>
 </ul>
 
@@ -325,7 +325,7 @@ MFM disc
 
 <p>Known Issues:</p>
 <ul>
- <li>Only works in the Unix/X Windows and MS Windows build of ArcEm.</li>
+ <li>Only works in the Unix/X Windows, MS Windows and Amiga builds of ArcEm.</li>
 </ul>
 
 <a name="riscosusageextramodes">
@@ -412,8 +412,6 @@ MFM disc
 <p>There is no error output when run from Workbench (it appears to do nothing
 when ROM or hexcmos is not found).  You can get the error output by
 starting it from the Shell.</p>
-<p>The mouse pointer image does not refresh very often and occasionally
-corruption appears below it.</p>
 <p>ArcEm always opens an 8-bit screen even if the emulation requests a lower
 depth.</p>
 <p>Occasionally ArcEm will crash on exit (the crashlog gives no hint as to
