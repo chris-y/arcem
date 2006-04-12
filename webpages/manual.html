@@ -24,7 +24,7 @@
       <li><a href="#floppies">Using floppies</a></li>
       <li><a href="#HDimages">Using HD images</a></li>
       <li><a href="#commandline">Commandline options <font color="#00CC00">CVS</font></a></li>
-      <li><a href="#acremrc">arcemrc file</a></li>
+      <li><a href="#arcemrc">arcemrc file</a></li>
       <li><a href="#riscosusage">RISC OS specific Usage</a>
         <ul>
           <li><a href="#riscosusagehostfs">HostFS <font color="#00CC00">CVS</font></a></li>
@@ -92,7 +92,7 @@ Once installed all versions require a ROM image file, see below
   </li>
   <li><b>Microsoft Windows</b>
     <p>ArcEm will build under <a href="http://sources.redhat.com/cygwin/">Cygwin</a>.
-      It builds a version which is indepedent of Cygwin (unlike the previous
+      It builds a version which is independent of Cygwin (unlike the previous
       version of ArcEm for Windows), so you will also need to ensure you have
       mingw-runtime library installed (from Cygwin setup). Use the following
       command:
@@ -131,7 +131,7 @@ Once installed all versions require a ROM image file, see below
     </p>
   </li>
   <li><b>Amiga</b>
-    <p>You will need the offical Amiga OS4 SDK and GCC, then build with the following commands:
+    <p>You will need the official Amiga OS4 SDK and GCC, then build with the following commands:
 <pre>
 stack 500000
 make SYSTEM=amiga
@@ -148,7 +148,7 @@ make SYSTEM=amiga
 </a> <a name="romimages">
 <h4>ROM images</h4>
 </a>
-<p>As Arcem is only a hardware emulator to make it do anything useful you need
+<p>As ArcEm is only a hardware emulator to make it do anything useful you need
   an operating system ROM. ArcEm has been tested with and is known to work with
   ARM Linux, RISC OS 3.10, RISC OS 3.11 and RISC OS 3.19. ARM Linux ROMs are
   freely available, check the website. RISC OS 3.1x ROMs can be extracted from
@@ -218,7 +218,7 @@ using this command.
     <p><font color="#FF0000">TODO</font></p>
   </li>
   <li><b>Amiga</b>
-    <p>The Amiga version runs fullscreen and captures all mouse input until you quit the program. You can quit the program from the menu you can bring up with the Left Amiga key.</p>
+    <p>The Amiga version runs fill-screen and captures all mouse input until you quit the program. You can quit the program from the menu you can bring up with the Left Amiga key.</p>
   </li>
 </ul>
 <a name="floppies">
@@ -228,13 +228,13 @@ using this command.
   disc image is a binary dump of the contents of a floppy disc. ArcEm has no
   support for directly using the host computers real floppy disc drive.</p>
 <p>The basic support for floppy discs is a to allow you to have the following
-  names floppy disc images in the current working directory of the ArcEm execuatable.<br>
+  names floppy disc images in the current working directory of the ArcEm executable.<br>
   FloppyImage0<br>
   FloppyImage1<br>
   FloppyImage2<br>
   FloppyImage3<br>
   These are then available under RISC OS as the 4 disc drives ADFS:0 to ADFS:3,
-  on linux they are accessable as <font color="#FF0000">TODO</font>. </p>
+  on Linux they are accessible as <font color="#FF0000">TODO</font>. </p>
 <p>Some platforms provide extra support for using floppy discs.</p>
 <li><b>Unix/XWindows</b>
   <p>Whilst the control pane window has the focus, pressing 0, 1, 2 or 3 will
@@ -243,7 +243,7 @@ using this command.
     time.</p>
 </li>
 <li><b>Mac OS X</b>
-  <p><font color="#FF0000">TODO</font> Mention the gui method of selecting disc images.</p>
+  <p><font color="#FF0000">TODO</font> Mention the GUI method of selecting disc images.</p>
 </li>
 <li><b>Amiga</b>
   <p>A menu to change the disc in drive 0 can be called up with the LAmiga key</p>
@@ -276,10 +276,10 @@ You also need to specify the hard drive "shape" in the arcemrc config file. The 
 
 </table>
 
-<a name="acremrc">
+<a name="arcemrc">
 <h4>arcemrc file</h4>
 </a>
-<p>The acremrc files stores information about the number and 'shape' of harddisc's attached to the emulated machine. Here is an example arcemrc:</p>
+<p>The arcemrc files stores information about the number and 'shape' of harddisc's attached to the emulated machine. Here is an example arcemrc:</p>
 <pre>
 MFM disc
 1 1024 8 32 256
@@ -290,7 +290,7 @@ MFM disc
 1) Hard drive number [1-2]<br>
 2) Number of Cylinders [<font color="#FF0000">??-??</font>]<br>
 3) Number of Heads [<font color="#FF0000">??-??</font>]<br>
-4) Numbder of Sectors [<font color="#FF0000">??-??</font>]<br>
+4) Number of Sectors [<font color="#FF0000">??-??</font>]<br>
 5) Record Length [<font color="#FF0000">??-??</font>]<br>
 </p>
 <p>For the premade hard drive images available on the website the shape information should be available. For your own harddiscs that you have imaged you should check the Harddrive itself, as the number of cylinders, sectors and heads is normally printed on it.</p>
@@ -305,7 +305,7 @@ MFM disc
 </a>
 <p>Make sure the files hostfs,ffa, hostfsfiler,ffa and arcemsupport,ffa are copied or 'sym-linked' from their support_modules sub directories into the 'extnrom' directory.</p>
 <p>Create a directory called 'hostfs' in your executable directory, if it does not exist already. This directory is the root of the 'virtual harddisc'. (You can override this directory and put it in a different place with a commandline option).
-<p>When you boot up RISC OS 3.1x there should be a HostFS icon in the bottom left of the screen, clicking this will open up the host filing system and behaves in the same manner as a real archimedes harddisc.</p>
+<p>When you boot up RISC OS 3.1x there should be a HostFS icon in the bottom left of the screen, clicking this will open up the host filing system and behaves in the same manner as a real Archimedes harddisc.</p>
 <p>Simply copy files on your host into the hostfs directory and they will be available to RISC OS.</p>
 <p>RISC OS filetypes are written to the host in the style of NFS mounts on Unix with a ,XXX on the end, eg a textfile would appear to be textfile,ffd.</p>
 <p>Files copied into the hostfs directory are unlikely to have their RISC OS filetypes, use the RISC OS 'set type ' function in the filer.</p>
@@ -384,7 +384,7 @@ MFM disc
 <a name="knownWIN32">
 <h4>Microsoft Windows</h4>
 </a>
-<p>The version 1.00 binary is very unstable and crashes regulaly.</p>
+<p>The version 1.00 binary is very unstable and crashes regularly.</p>
 <p>The only menu items that do anything are Quit and About.</p>
 <p>The mouse handling is very poor.</p>
 <p>The Windows version has no diagnostics if anything goes wrong and will quite without warning (unless you rebuild with a console).</p>
