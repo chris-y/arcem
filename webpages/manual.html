@@ -136,7 +136,7 @@ Once installed all versions require a ROM image file, see below
 stack 500000
 make SYSTEM=amiga
 </pre>
-   It will not compile with libraries other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.
+   It will not compile with anything other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.
     </p>
   </li>
 </ul>
@@ -218,7 +218,7 @@ using this command.
     <p><font color="#FF0000">TODO</font></p>
   </li>
   <li><b>Amiga</b>
-    <p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit the program from the menu you can bring up with the Left Amiga key.</p>
+    <p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit ArcEm from the menu you can bring up with the Left Amiga key.</p>
   </li>
 </ul>
 <a name="floppies">
@@ -260,7 +260,7 @@ You also need to specify the hard drive "shape" in the arcemrc config file. The 
 <h4>Commandline options <font color="#00CC00">CVS</font></h4>
 </a>
 
-<p><font color="#00CC00">CVS</font> versions of ArcEm support commandline options under Unix/X Windows and other platforms.</p>
+<p><font color="#00CC00">CVS</font> versions of ArcEm support commandline options under Unix/X Windows and other platforms.  The Amiga version will also accept them as tooltypes.</p>
 <table border="1">
 <tr><th>Option</th><th>Meaning</th><th>Allowed values</th><th>Default Value</th></tr>
 <tr><td>--help</td><td>Display list of available options and exit</td></tr>
@@ -359,7 +359,7 @@ MFM disc
 
 <p>Known Issues:</p>
 <ul>
- <li>Modes larger that 800x600 will only work under Unix/X Windows and Amiga builds of ArcEm, however modes 32, 122, 123, 124 and 125 will work on all platforms.</li>
+ <li>Modes larger than 800x600 will only work under Unix/X Windows and Amiga builds of ArcEm, however modes 32, 122, 123, 124 and 125 will work on all platforms.</li>
  <li>Mode 122 is slightly buggy and looks very odd.</li>
 </ul>
 
@@ -410,12 +410,10 @@ MFM disc
 <h4>Amiga</h4>
 </a>
 <p>There is no error output when run from Workbench (it appears to do nothing
-when ROM or hexcmos is not found).  You can get the error output by
+when ROM is not found).  You can get the error output by
 starting it from the Shell.</p>
 <p>ArcEm always opens an 8-bit screen even if the emulation requests a lower
 depth.</p>
-<p>Occasionally ArcEm will crash on exit (the crashlog gives no hint as to
-why).</p>
 <p>There is intentionally no keyboard remapping, keys are mapped based on
 position.</p>
 <p>It will only run full screen, not windowed.</p>
