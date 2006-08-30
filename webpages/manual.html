@@ -250,9 +250,11 @@ using this command.
 </li>
 <a name="HDimages">
 <h4>Using HD images</h4>
-</a><p>ArcEm supports up to 2 Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
+</a><p>ArcEm supports up to 4 Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
+HardImage0<br>
 HardImage1<br>
 HardImage2<br>
+HardImage3<br>
 You also need to specify the hard drive "shape" in the arcemrc config file. The "shape" lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
 <p>In RISC OS, you will also need to use the !Configure application to set the number of hard drives inside that OS.</p>
 
@@ -287,11 +289,11 @@ MFM disc
 2 612 4 32 256
 </pre>
 <p>The five numbers represent the following:<br>
-1) Hard drive number [1-2]<br>
-2) Number of Cylinders [<font color="#FF0000">??-??</font>]<br>
-3) Number of Heads [<font color="#FF0000">??-??</font>]<br>
-4) Number of Sectors [<font color="#FF0000">??-??</font>]<br>
-5) Record Length [<font color="#FF0000">??-??</font>]<br>
+1) Hard drive number: 0 to 3 inclusive.<br>
+2) Number of Cylinders: 1 to 1024 inclusive.<br>
+3) Number of Heads: 1 to 256 inclusive.<br>
+4) Number of Sectors per track: 1 to 256 inclusive.<br>
+5) Sector Length: 256, 512, 1024, 2048, or 4096.<br>
 </p>
 <p>For the premade hard drive images available on the website the shape information should be available. For your own harddiscs that you have imaged you should check the Harddrive itself, as the number of cylinders, sectors and heads is normally printed on it.</p>
 
