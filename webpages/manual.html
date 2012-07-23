@@ -41,7 +41,6 @@
      <li><a href="#knownWIN32">Microsoft Windows</a></li>
      <li><a href="#knownOSX">Mac OS X</a></li>
      <li><a href="#knownRO">RISC OS</a></li>
-     <li><a href="#knownGP2X">GP2x</a></li>
      <li><a href="#knownAMIGA">Amiga</a></li>
    </ul></li>
   <li><a href="#changelog">ChangeLog</a>
@@ -66,9 +65,6 @@ Once installed all versions require a ROM image file, see below
   </li>
   <li><b>RISC OS</b>
     <p>Please see the !Help file within the !ArcEm application for usage information.</p>
-  </li>
-  <li><b>GP2x</b>
-    <p>Copy the arcemrc and hexcmos files to a folder called 'arcem' on the root of your SD card. Add a 'rom' file here, too.</p>
   </li>
   <li><b>Amiga</b>
     <p>Extract the archive to any directory you choose, just add a file called ROM as described below.</p>
@@ -96,7 +92,7 @@ Once installed all versions require a ROM image file, see below
       version of ArcEm for Windows), so you will also need to ensure you have
       mingw-runtime library installed (from Cygwin setup). Use the following
       command:
-    <pre> 
+    <pre>
      make SYSTEM=win
    </pre>
     Additionally, ArcEm will build in Microsoft Visual C 6. Project files are
@@ -120,14 +116,6 @@ Once installed all versions require a ROM image file, see below
      CC=/home/riscos/cross/bin/gcc make SYSTEM=riscos-single
    </pre>
     The desktop version of ArcEm has not been developed yet, and will not build.
-    </p>
-  </li>
-  <li><b>GP2x</b>
-    <p>The Makefile assumes that you have DevKitGP2X installed in D:/gp2x/<br>
-      You can build by simply:
-    <pre>
-     make SYSTEM=gp2x
-   </pre>
     </p>
   </li>
   <li><b>Amiga</b>
@@ -179,9 +167,6 @@ using this command.
   <li><b>RISC OS</b>
     <p><font color="#FF0000">TODO</font></p>
   </li>
-  <li><b>GP2X</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
   <li><b>Amiga</b>
     <p>From the commandline</p>
     <pre>join ROM1 ROM2 ROM3 ROM4 as ROM</pre>
@@ -212,9 +197,6 @@ using this command.
     <p><font color="#FF0000">TODO</font></p>
   </li>
   <li><b>RISC OS</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
-  <li><b>GP2X</b>
     <p><font color="#FF0000">TODO</font></p>
   </li>
   <li><b>Amiga</b>
@@ -314,7 +296,7 @@ MFM disc
 
 <p>Known Issues:</p>
 <ul>
- <li>Does not work at all on Windows/RISC OS/GP2X builds of ArcEm.</li>
+ <li>Does not work at all on Windows/RISC OS builds of ArcEm.</li>
  <li>Files on the host side are not allowed to have dollars in the filename, eg 'textfile$' would not work, but 'textfile' would be fine.
  <li>Errors that occur when performing actions on the host filing system are often not well reported under RISC OS.</p>
 </ul>
@@ -403,11 +385,6 @@ MFM disc
 </a>
 <p>The RISC OS version is very slow.</p>
 
-<a name="knownGP2X">
-<h4>GP2x</h4>
-</a>
-<p>The GP2x version is very slow.</p>
-
 <a name="knownAMIGA">
 <h4>Amiga</h4>
 </a>
@@ -425,14 +402,6 @@ position.</p>
 <a name="changelog"></a>
 <h3>ChangeLog:</h3>
 <p></p>
-<dl>
-  <dd>
-    <p><b>1.01 - 26th February 2006</b></p>
-    <ul>
-      <li>Added notes for GP2X port
-    </ul>
-  </dd>
-</dl>
 <dl>
   <dd>
     <p><b>1.00 - 6th May 2002</b></p>
