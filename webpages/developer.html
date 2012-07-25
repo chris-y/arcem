@@ -67,13 +67,18 @@ h4 {
         <li>Easier for the end user to use</li>
         <li>Support more hardware
           <ul>
-            <li>A5000 level machines</li>
-            <li>Risc PC level machines</li>
+            <li>IOEB emulation (1.6MB floppies, joysticks, more VIDC clock speeds, etc)</li>
+            <li>Parallel &amp; serial emulation</li>
           </ul>
         </li>
         <li>Tidier, making the code easier to bug fix and maintain</li>
-        <li>Faster, investigate the use of a JIT or rolling support into the QEMU project.</li>
-		<li>Additional features, including networking.</li>
+        <li>Faster</li>
+        <li>Additional features
+          <ul>
+            <li>Networking</li>
+            <li>Ability to save &amp; restore emulator state (perfect for those games that don't let you save)</li>
+          </ul>
+        </li>
       </ul>
       <a name="news"><h3>News</h3></a>
 	  <h4>26 March 2006 - Catchup</h4>
@@ -102,7 +107,8 @@ h4 {
         and later hardware has been <a href="http://www.home.marutan.net/arcemdocs/">collected
         together</a>. Please have a look at the wanted list and see if you can
         contribute.</p>
-      <a name="featurematrix"><h3>Feature Matrix</h3></a>      <p>This is a table of what features are supported on which platform based
+      <a name="featurematrix"><h3>Feature Matrix</h3></a>
+      <p>This is a table of what features are supported on which platform based
         on the current state of the CVS HEAD.</p>
       <table border="1">
         <tr>
@@ -111,7 +117,6 @@ h4 {
           <th>MS Windows</th>
           <th>Mac OS X</th>
           <th>RISC OS</th>
-          <th>GP2X</th>
           <th>Amiga</th>
         </tr>
         <tr>
@@ -119,26 +124,23 @@ h4 {
           <td class="Y">Y</td>
           <td class="Y">Y</td>
           <td class="Y">Y</td>
-          <td class="N">N</td>
-          <td class="N">N</td>
+          <td class="Y">Y</td>
           <td class="Y">Y</td>
         </tr>
         <tr>
           <th>HostFS</th>
           <td class="Y">Y</td>
-          <td class="N">N</td>
           <td class="Y">Y</td>
-          <td class="N">N</td>
-          <td class="N">N</td>
+          <td class="Y">Y</td>
+          <td class="Y">Y</td>
           <td class="Y">Y</td>
         </tr>
         <tr>
-          <th>Gfx > 800x600</th>
+          <th>Gfx &gt; 800x600</th>
           <td class="Y">Y</td>
           <td class="N">N</td>
           <td class="N">N</td>
-          <td class="N">N</td>
-          <td class="N">N</td>
+          <td class="Y">Y</td>
           <td class="Y">Y</td>
         </tr>
         <tr>
@@ -146,9 +148,8 @@ h4 {
           <td class="Y">Y [1]</td>
           <td class="N">N</td>
           <td class="N">N</td>
-          <td class="N">N</td>
-          <td class="N">N</td>
-          <td class="N">Y [2]</td>
+          <td class="Y">Y</td>
+          <td class="Y">Y [2]</td>
         </tr>
         <tr>
           <th>Mousewheel Support</th>
@@ -156,14 +157,8 @@ h4 {
           <td class="Y">Y</td>
           <td class="N">N</td>
           <td class="N">N</td>
-          <td class="N">N</td>
           <td class="Y">Y</td>
         </tr>
-        <!--
-	  <tr>
-	   <th></th><td></td><td></td><td></td><td></td><td></td>
-	  </tr>
--->
       </table>
       <p>[1] - Requires pthread library and OSS sound API.<br>
          [2] - Requires ahi-handler</p>
