@@ -404,6 +404,39 @@ position.</p>
 <p></p>
 <dl>
   <dd>
+    <p><b>1.50 - ?? ?? 2012</b></p>
+    <ul>
+      <li>New features
+        <ul>
+          <li>Addition of ports to Amiga OS 3 and OS 4.
+          <li>Sound emulation.
+          <li>Support for RAM sizes other than 4MB (512KB, 1MB, 2MB, 4MB, 8MB, 12MB & 16MB now supported)
+          <li>ARM250 & ARM3 CPU emulation.
+          <li>ArcEm clock set from host's clock, partial RTC support.
+          <li>Extension ROM emulation, allowing support for the following new features when emulation RISC OS:
+            <ul>
+              <li>HostFS - A RISC OS filesystem to allow use of a directory on the Host Filing system as a virtual hard drive
+              <li>Mouse scroll wheel support
+              <li>Extra video modes, up to 1024x768 in 16 colours and 800x600 in 256 colours
+            </ul>
+        </ul>
+      <li>Bug fixes/Improvements
+        <ul>
+          <li>Many performance tweaks and optimisations, resulting in a 5-6 times performance gain on ARM hosts. A 600MHz XScale can now achieve a level of performance roughly equivalent to an 8MHz ARM2. Similar performance gains can be seen on other low-power hosts.
+          <li>Video emulation rewritten to provide accurate redraw and VSync timing, down to the scanline level.
+          <li>Video emulation now supports upscaling and aspect ratio correction for rectangular pixel modes.
+          <li>All hardware clocks/timers (IOC timers, video DMA, audio DMA, etc.) now run in real time, ensuring one second takes one second no matter how fast the host machine is.
+          <li>Source code tidied a bit to remove redundant code, including support for emulation of 32bit processor modes (there are other, much better emulators for that!).
+          <li>Source code converted to use C99 number types to aid portability.
+          <li>Instruction prefetch now correctly emulated - ensures correct operation with self-modifying code and some forms of copy protection.
+          <li>RISC OS version now 32bit compatible, and ARMv7-safe. Also much more useable with modern machines/LCD monitors as it no longer requires the host to be able to support Archimedes screen modes.
+          <li>Windows version updated to build under Visual Studio 2010.
+        </ul>        
+    </ul>
+  </dd>
+</dl>
+<dl>
+  <dd>
     <p><b>1.00 - 6th May 2002</b></p>
     <ul>
       <li>New manual and new SourceForge page. Other documentation deprecated.
