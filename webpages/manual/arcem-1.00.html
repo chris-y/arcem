@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ArcEm Manual</title>
+</head>
+<body>
+<h1>ArcEm - The Acorn System Emulator</h1>
+<h3>ArcEm 1.00</h3>
+<p><a href="http://arcem.sf.net/">http://arcem.sf.net/</a>
+</p>
+<p>&nbsp;</p>
+<hr>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#install">Installing ArcEm</a></li>
+  <li><a href="#compiling">Compiling ArcEm</a></li>
+  <li><a href="using">Using ArcEm</a>
+    <ul>
+      <li><a href="#romimages">ROM Images</a></li>
+      <li><a href="#mouseinput">Mouse Input</a></li>
+      <li><a href="#floppies">Using floppies</a></li>
+      <li><a href="#HDimages">Using HD images</a></li>
+      <li><a href="#arcemrc">arcemrc file</a></li>
+    </ul>
+  </li>
+  <li><a href="#issues">Known Issues and bugs</a>
+   <ul>
+     <li><a href="#knownall">All platforms</a></li>
+     <li><a href="#knownX">Unix/X Windows</a></li>
+     <li><a href="#knownWIN32">Microsoft Windows</a></li>
+     <li><a href="#knownOSX">Mac OS X</a></li>
+     <li><a href="#knownRO">RISC OS</a></li>
+     <li><a href="#knownAMIGA">Amiga</a></li>
+   </ul></li>
+</ul>
+<hr>
+<p></p>
+<a name="install"></a>
+<h3>Installation</h3>
+Once installed all versions require a ROM image file, see below
+<ul>
+  <li><b>Unix/X Windows</b>
+    <p>Download the src archive and follow the compilation instructions below.
+      Once compiled copy the arcemrc file to your home directory as .arcemrc.
+      When run there is some output on the console.</p>
+  </li>
+  <li><b>Microsoft Windows</b>
+    <p>Extract the archive and supply a ROM image, the program is called ArcEm.exe. Create a shortcut to this file if you want to add it to your start menu or desktop.</p>
+  </li>
+  <li><b>Mac OS X</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>RISC OS</b>
+    <p>Please see the !Help file within the !ArcEm application for usage information.</p>
+  </li>
+  <li><b>Amiga</b>
+    <p>Extract the archive to any directory you choose, just add a file called ROM as described below.</p>
+  </li>
+</ul>
+<hr>
+<a name="compiling">
+<h3>Compiling ArcEm</h3>
+</a>
+<ul>
+  <li><b>Unix/X Windows</b>
+    <p>The X windows version compiles up using the 'Makefile' contained in the
+      root of the source package. If you have a big endian processor, such as
+      Sparc or PowerPC edit the Makefile to add the -DHOST_BIGENDIAN flag to
+      the CFLAGS field.
+    <pre>
+     make
+   </pre>
+    </p>
+  </li>
+  <li><b>Microsoft Windows</b>
+    <p>ArcEm will build under <a href="http://sources.redhat.com/cygwin/">Cygwin</a>.
+      It builds a version which is independent of Cygwin (unlike the previous
+      version of ArcEm for Windows), so you will also need to ensure you have
+      mingw-runtime library installed (from Cygwin setup). Use the following
+      command:
+    <pre>
+     make SYSTEM=win
+   </pre>
+    Additionally, ArcEm will build in Microsoft Visual C 6. Project files are
+    provided for this in the 'vc' directory.
+    </p>
+  </li>
+  <li><b>Mac OS X</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>RISC OS</b>
+    <p> ArcEm builds with GCC. You should use the following command:
+    <pre>
+     make SYSTEM=riscos-single
+   </pre>
+    It is possible to build with Leo White's RiscXLib if you really want to make
+    an X Windows version under RISC&nbsp;OS, but that is beyond the scope of
+    this guide. Finally, it is also possible to cross compile it using <a href="http://hard-mofo.dsvr.net/gcc/">GCCSDK</a>.
+    e.g.:
+    <pre>
+     CC=/home/riscos/cross/bin/gcc make SYSTEM=riscos-single
+   </pre>
+    The desktop version of ArcEm has not been developed yet, and will not build.
+    </p>
+  </li>
+  <li><b>Amiga</b>
+    <p>You will need the official Amiga OS4 SDK and GCC, then build with the following commands:
+<pre>
+stack 500000
+make SYSTEM=amiga
+</pre>
+   It will not compile with anything other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.
+    </p>
+  </li>
+</ul>
+
+<hr>
+
+<a name="using">
+<h3>Using ArcEm</h3>
+</a> <a name="romimages">
+<h4>ROM images</h4>
+</a>
+<p>As ArcEm is only a hardware emulator to make it do anything useful you need
+  an operating system ROM. ArcEm has been tested with and is known to work with
+  ARM Linux, RISC OS 3.10, RISC OS 3.11 and RISC OS 3.19. ARM Linux ROMs are
+  freely available, check the website. RISC OS 3.1x ROMs can be extracted from
+  a real Acorn machine using the following commands on RISC OS.
+<pre>
+       *save :0.$.ROM1 3800000 3880000
+       *save :0.$.ROM2 3880000 3900000
+       *save :0.$.ROM3 3900000 3980000
+       *save :0.$.ROM4 3980000 3a00000
+</pre>
+Copy these files to your host operating system, RISC OS 3.1x supports DOS formatted
+floppy discs so you can use them to transfer the files. ArcEm needs the ROM file
+to be in one part (rather than the 4 you just created) so join them back together
+using this command.
+</p>
+<ul>
+  <li><b>Unix/XWindows</b>
+    <p>From a shell prompt</p>
+    <pre>cat ROM1 ROM2 ROM3 ROM4 &gt; ROM</pre>
+  </li>
+  <li><b>Windows</b>
+    <p>From a cmd.exe command prompt</p>
+    <pre>copy /b ROM1+ROM2+ROM3+ROM4 ROM</pre>
+  </li>
+  <li><b>Mac OS X</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>RISC OS</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>Amiga</b>
+    <p>From the commandline</p>
+    <pre>join ROM1 ROM2 ROM3 ROM4 as ROM</pre>
+  </li>
+</ul>
+<p>Alternate sources of ROM images, you can download a copy of the RISC OS 3.10
+  ROM image as a support file from the <a href="http://home.tiscali.nl/~jandboer/">!A310emu
+  website</a>, it's in the file <a href="http://home.tiscali.nl/~jandboer/support2.zip">support2.zip</a> and
+  is called ro310, you should rename ro310 to ROM before using it with ArcEm.</p>
+<a name="mouseinput">
+<h4>Mouse Input</h4>
+</a>
+<p>Some of the platforms require specific instructions to let you move the mouse
+  around.</p>
+<ul>
+  <li><b>Unix/X Windows</b>
+    <p>Whilst the Main display window has the focus, press the + key on the numeric
+      keypad to 'capture' the mouse. To 'free' the mouse again for use with the
+      rest of your X desktop press numeric keypad + again.</p>
+  </li>
+  <li><b>Windows</b>
+    <p>Although there is some mouse movement when you move the cursor over the
+      display window, you can use the Unix/XWindows style numeric keypad + toggle
+      to 'capture' and 'free' the mouse for better performance. Currently mouse
+      handling on the Windows build is very poor.</p>
+  </li>
+  <li><b>Mac OS X</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>RISC OS</b>
+    <p><font color="#FF0000">TODO</font></p>
+  </li>
+  <li><b>Amiga</b>
+    <p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit ArcEm from the menu you can bring up with the Left Amiga key.</p>
+  </li>
+</ul>
+<a name="floppies">
+<h4>Using floppies</h4>
+</a>
+<p>All the platforms support using .adf format floppy disc images. A
+  disc image is a binary dump of the contents of a floppy disc. ArcEm has no
+  support for directly using the host computers real floppy disc drive.</p>
+<p>The basic support for floppy discs is to allow you to have the following
+  floppy disc images in the current working directory of the ArcEm executable.<br>
+  FloppyImage0<br>
+  FloppyImage1<br>
+  FloppyImage2<br>
+  FloppyImage3<br>
+  These are then available under RISC OS as the 4 disc drives ADFS:0 to ADFS:3,
+  on Linux they are accessible as <font color="#FF0000">TODO</font>. </p>
+<p>Some platforms provide extra support for using floppy discs.</p>
+
+<ul>
+<li><b>Unix/XWindows</b>
+  <p>Whilst the control pane window has the focus, pressing 0, 1, 2 or 3 will
+    eject/insert floppy disc images, those images still have to be named as above,
+    but with moving of images around you should be able to change discs at run
+    time.</p>
+</li>
+<li><b>Mac OS X</b>
+  <p><font color="#FF0000">TODO</font> Mention the GUI method of selecting disc images.</p>
+</li>
+<li><b>Amiga</b>
+  <p>A menu to change the disc in drive 0 can be called up with the LAmiga key</p>
+</li>
+</ul>
+
+<a name="HDimages">
+<h4>Using HD images</h4>
+</a><p>ArcEm supports up to 4 Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
+HardImage0<br>
+HardImage1<br>
+HardImage2<br>
+HardImage3<br>
+You also need to specify the hard drive "shape" in the arcemrc config file. The "shape" lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
+<p>In RISC OS, you will also need to use the !Configure application to set the number of hard drives inside that OS.</p>
+
+<a name="arcemrc">
+<h4>arcemrc file</h4>
+</a>
+<p>The arcemrc files stores information about the number and 'shape' of harddisc's attached to the emulated machine. Here is an example arcemrc:</p>
+<pre>
+MFM disc
+1 1024 8 32 256
+MFM disc
+2 612 4 32 256
+</pre>
+<p>The five numbers represent the following:<br>
+1) Hard drive number: 0 to 3 inclusive.<br>
+2) Number of Cylinders: 1 to 1024 inclusive.<br>
+3) Number of Heads: 1 to 256 inclusive.<br>
+4) Number of Sectors per track: 1 to 256 inclusive.<br>
+5) Sector Length: 256, 512, 1024, 2048, or 4096.<br>
+</p>
+<p>For the premade hard drive images available on the website the shape information should be available. For your own harddiscs that you have imaged you should check the Harddrive itself, as the number of cylinders, sectors and heads is normally printed on it.</p>
+
+<hr>
+
+<a name="issues">
+<h3>Known Issues and bugs</h3>
+</a>
+
+<a name="knownall">
+<h4>All platforms</h4>
+</a>
+<p>There is no support for emulating 256K/512K/1MB RAM machines.</p>
+<p>2MB RAM support incorrectly has a 32KB page size set, real machines have a 16KB page size, RISC OS copes with this and boots as normal.</p>
+<p>All interlaced modes are displayed at their logical resolution, this means displays in some modes appear to be half the height they would appear on real monitors.</p>
+
+<a name="knownX">
+<h4>Unix/X Windows</h4>
+</a>
+<p>The display window doesn't resize on mode changes and remains at 800x600.</p>
+
+<a name="knownWIN32">
+<h4>Microsoft Windows</h4>
+</a>
+<p>The version 1.00 binary is very unstable and crashes regularly.</p>
+<p>The only menu items that do anything are Quit and About.</p>
+<p>The mouse handling is very poor.</p>
+<p>The Windows version has no diagnostics if anything goes wrong and will quite without warning (unless you rebuild with a console).</p>
+<p>ARM Linux does not currently work in the Windows version of
+        the emulator. There is an unknown issue with harddrive access.</p>
+
+<a name="knownOSX">
+<h4>Mac OS X</h4>
+</a>
+<p><font color="#FF0000">TODO</font></p>
+
+<a name="knownRO">
+<h4>RISC OS</h4>
+</a>
+<p>The RISC OS version is very slow.</p>
+
+<a name="knownAMIGA">
+<h4>Amiga</h4>
+</a>
+<p>There is no error output when run from Workbench (it appears to do nothing
+when ROM is not found).  You can get the error output by
+starting it from the Shell.</p>
+<p>ArcEm always opens an 8-bit screen even if the emulation requests a lower
+depth.</p>
+<p>There is intentionally no keyboard remapping, keys are mapped based on
+position.</p>
+<p>It will only run full screen, not windowed.</p>
+</p>
+
+</body>
+</html>

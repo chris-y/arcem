@@ -6,10 +6,8 @@
 </head>
 <body>
 <h1>ArcEm - The Acorn System Emulator</h1>
-<h3>Version 1.02, 6th April 2006</h3>
-<p>This is a combined manual for the release version 1.00 and the later versions
-  from CVS, when a feature is only available from the CVS it is marked <font color="#00CC00">CVS</font>.<br>
-  <a href="http://arcem.sf.net/">http://arcem.sf.net</a>
+<h3>Development version (CVS HEAD)</h3>
+<p>This user manual is for the latest version only available from CVS.<br><a href="http://arcem.sf.net/">http://arcem.sf.net/</a>
 </p>
 <p>&nbsp;</p>
 <hr>
@@ -23,13 +21,13 @@
       <li><a href="#mouseinput">Mouse Input</a></li>
       <li><a href="#floppies">Using floppies</a></li>
       <li><a href="#HDimages">Using HD images</a></li>
-      <li><a href="#commandline">Commandline options <font color="#00CC00">CVS</font></a></li>
+      <li><a href="#commandline">Commandline options</a></li>
       <li><a href="#arcemrc">arcemrc file</a></li>
       <li><a href="#riscosusage">RISC OS specific Usage</a>
         <ul>
-          <li><a href="#riscosusagehostfs">HostFS <font color="#00CC00">CVS</font></a></li>
-          <li><a href="#riscosusagescrollwheel">Mouse Scrollwheel support <font color="#00CC00">CVS</font></a></li>
-          <li><a href="#riscosusageextramodes">Extra Screen Modes <font color="#00CC00">CVS</font></a></li>
+          <li><a href="#riscosusagehostfs">HostFS</a></li>
+          <li><a href="#riscosusagescrollwheel">Mouse Scrollwheel support</a></li>
+          <li><a href="#riscosusageextramodes">Extra Screen Modes</a></li>
         </ul>
       </li>
     </ul>
@@ -43,7 +41,6 @@
      <li><a href="#knownRO">RISC OS</a></li>
      <li><a href="#knownAMIGA">Amiga</a></li>
    </ul></li>
-  <li><a href="#changelog">ChangeLog</a>
 </ul>
 <hr>
 <p></p>
@@ -78,8 +75,7 @@ Once installed all versions require a ROM image file, see below
   <li><b>Unix/X Windows</b>
     <p>The X windows version compiles up using the 'Makefile' contained in the
       root of the source package. If you have a big endian processor, such as
-      Sparc or PowerPC edit the Makefile to add the -DHOST_BIGENDIAN flag to
-      the CFLAGS field. In <font color="#00CC00">CVS</font> versions simply edit
+      Sparc or PowerPC edit
       the HOST_BIGENDIAN=no to HOST_BIGENDIAN=yes near the top of the Makefile.
     <pre>
      make
@@ -96,8 +92,7 @@ Once installed all versions require a ROM image file, see below
      make SYSTEM=win
    </pre>
     Additionally, ArcEm will build in Microsoft Visual C 6. Project files are
-    provided for this in the 'vc' directory. In <font color="#00CC00">CVS</font> versions
-    there are also project files in 'vc' for Microsoft Studio 2005.
+    provided for this in the 'vc' directory. There are also project files in 'vc' for Microsoft Studio 2005.
     </p>
   </li>
   <li><b>Mac OS X</b>
@@ -218,6 +213,8 @@ using this command.
   These are then available under RISC OS as the 4 disc drives ADFS:0 to ADFS:3,
   on Linux they are accessible as <font color="#FF0000">TODO</font>. </p>
 <p>Some platforms provide extra support for using floppy discs.</p>
+
+<ul>
 <li><b>Unix/XWindows</b>
   <p>Whilst the control pane window has the focus, pressing 0, 1, 2 or 3 will
     eject/insert floppy disc images, those images still have to be named as above,
@@ -230,6 +227,8 @@ using this command.
 <li><b>Amiga</b>
   <p>A menu to change the disc in drive 0 can be called up with the LAmiga key</p>
 </li>
+</ul>
+
 <a name="HDimages">
 <h4>Using HD images</h4>
 </a><p>ArcEm supports up to 4 Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named<br>
@@ -237,14 +236,15 @@ HardImage0<br>
 HardImage1<br>
 HardImage2<br>
 HardImage3<br>
-You also need to specify the hard drive "shape" in the arcemrc config file. The "shape" lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
+You also need to specify the hard drive &quot;shape&quot; in the arcemrc config file. The &quot;shape&quot; lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
 <p>In RISC OS, you will also need to use the !Configure application to set the number of hard drives inside that OS.</p>
 
 <a name="commandline">
-<h4>Commandline options <font color="#00CC00">CVS</font></h4>
+<h4>Commandline options</h4>
 </a>
 
-<p><font color="#00CC00">CVS</font> versions of ArcEm support commandline options under Unix/X Windows and other platforms.  The Amiga version will also accept them as tooltypes.</p>
+<p>ArcEm supports commandline options under Unix/X Windows and other platforms.  The Amiga version will also accept them as tooltypes.</p>
+
 <table border="1">
 <tr><th>Option</th><th>Meaning</th><th>Allowed values</th><th>Default Value</th></tr>
 <tr><td>--help</td><td>Display list of available options and exit</td></tr>
@@ -254,10 +254,6 @@ You also need to specify the hard drive "shape" in the arcemrc config file. The 
 <tr><td>--hostfsdir&nbsp;&lt;value&gt;</td><td>Specify the directory to use as the base of hostfs</td><td>Path from place of execution to base of hostfs</td><td>hostfs/</td></tr>
 <tr><td>--memory&nbsp;&lt;value&gt;</td><td>Change the amount of memory the emulated machine has</td><td>256K 512K 1M 2M 4M 8M 12M 16M</td><td>4M</td></tr>
 <tr><td>--processor</td><td>Change the emulated machine's processor</td><td>ARM2 ARM3 ARM250</td><td>ARM250</td></tr>
-<!-- <tr><td></td><td></td><td></td><td></td></tr> -->
-
-
-
 </table>
 
 <a name="arcemrc">
@@ -285,9 +281,9 @@ MFM disc
 <p>This section details some of the code that is only relevant when ArcEm is running RISC OS, it does not apply for ARM Linux</p>
 
 <a name="riscosusagehostfs">
-<h5>HostFS <font color="#00CC00">CVS</font></h5>
+<h5>HostFS</h5>
 </a>
-<p>Make sure the files hostfs,ffa, hostfsfiler,ffa and arcemsupport,ffa are copied or 'sym-linked' from their support_modules sub directories into the 'extnrom' directory.</p>
+<p>Make sure the files hostfs,ffa, hostfsfiler,ffa and support,ffa are copied or 'sym-linked' from their support_modules sub directories into the 'extnrom' directory.</p>
 <p>Create a directory called 'hostfs' in your executable directory, if it does not exist already. This directory is the root of the 'virtual harddisc'. (You can override this directory and put it in a different place with a commandline option).
 <p>When you boot up RISC OS 3.1x there should be a HostFS icon in the bottom left of the screen, clicking this will open up the host filing system and behaves in the same manner as a real Archimedes harddisc.</p>
 <p>Simply copy files on your host into the hostfs directory and they will be available to RISC OS.</p>
@@ -302,7 +298,7 @@ MFM disc
 </ul>
 
 <a name="riscosusagescrollwheel">
-<h5>Mouse Scrollwheel support <font color="#00CC00">CVS</font></h5>
+<h5>Mouse Scrollwheel support</h5>
 </a>
 <p>Make sure the file scrollwheel,ffa is copied or 'symlinked' from the 'support_modules/scrollwheel' directory into the 'extnrom' directory.</p>
 <p>Spinning the scrollwheel up and down in RISC OS over windows that are vertically scrollable works in the way you'd expect.</p>
@@ -313,7 +309,7 @@ MFM disc
 </ul>
 
 <a name="riscosusageextramodes">
-<h5>Additional Screen modes <font color="#00CC00">CVS</font></h5>
+<h5>Additional Screen modes</h5>
 </a>
 <p>Make sure the file ArcemModes,ffa is copied or 'symlinked' from the 'support_modules/modes' directory into the 'extnrom' directory.</p>
 
@@ -363,7 +359,7 @@ MFM disc
 <a name="knownX">
 <h4>Unix/X Windows</h4>
 </a>
-<p>The display window doesn't resize on mode changes and remains at 800x600 (resolved in <font color="#00CC00">CVS</font>).</p>
+<p>?</p>
 
 <a name="knownWIN32">
 <h4>Microsoft Windows</h4>
@@ -398,85 +394,5 @@ position.</p>
 <p>It will only run full screen, not windowed.</p>
 </p>
 
-<hr>
-<a name="changelog"></a>
-<h3>ChangeLog:</h3>
-<p></p>
-<dl>
-  <dd>
-    <p><b>1.50 - ?? ?? 2012</b></p>
-    <ul>
-      <li>New features
-        <ul>
-          <li>Addition of ports to Amiga OS 3 and OS 4.
-          <li>Sound emulation.
-          <li>Support for RAM sizes other than 4MB (512KB, 1MB, 2MB, 4MB, 8MB, 12MB & 16MB now supported)
-          <li>ARM250 & ARM3 CPU emulation.
-          <li>ArcEm clock set from host's clock, partial RTC support.
-          <li>Extension ROM emulation, allowing support for the following new features when emulation RISC OS:
-            <ul>
-              <li>HostFS - A RISC OS filesystem to allow use of a directory on the Host Filing system as a virtual hard drive
-              <li>Mouse scroll wheel support
-              <li>Extra video modes, up to 1024x768 in 16 colours and 800x600 in 256 colours
-            </ul>
-        </ul>
-      <li>Bug fixes/Improvements
-        <ul>
-          <li>Many performance tweaks and optimisations, resulting in a 5-6 times performance gain on ARM hosts. A 600MHz XScale can now achieve a level of performance roughly equivalent to an 8MHz ARM2. Similar performance gains can be seen on other low-power hosts.
-          <li>Video emulation rewritten to provide accurate redraw and VSync timing, down to the scanline level.
-          <li>Video emulation now supports upscaling and aspect ratio correction for rectangular pixel modes.
-          <li>All hardware clocks/timers (IOC timers, video DMA, audio DMA, etc.) now run in real time, ensuring one second takes one second no matter how fast the host machine is.
-          <li>Source code tidied a bit to remove redundant code, including support for emulation of 32bit processor modes (there are other, much better emulators for that!).
-          <li>Source code converted to use C99 number types to aid portability.
-          <li>Instruction prefetch now correctly emulated - ensures correct operation with self-modifying code and some forms of copy protection.
-          <li>RISC OS version now 32bit compatible, and ARMv7-safe. Also much more useable with modern machines/LCD monitors as it no longer requires the host to be able to support Archimedes screen modes.
-          <li>Windows version updated to build under Visual Studio 2010.
-        </ul>        
-    </ul>
-  </dd>
-</dl>
-<dl>
-  <dd>
-    <p><b>1.00 - 6th May 2002</b></p>
-    <ul>
-      <li>New manual and new SourceForge page. Other documentation deprecated.
-      <li>Added project files for MS VC++, and fix warnings provoked by it.
-      <li>Further split of windowing/non-windowing functionality to aid division
-        of architecture-independent files.
-      <li>Windows version made independent from Cygwin.
-      <li>Windows support imported from eQRD version. Features brought inline
-        with other versions, including icon change, and same format for choices
-        file.
-      <li>Entirety of build warnings fixed under GCC, including those that appeared
-        from turning on harsh warning flags.
-      <li>General tidying.
-      <li>Makefile rearranged so that default Unix builds are more sensible.
-    </ul>
-  </dd>
-</dl>
-<dl>
-  <dd>
-    <p><b>0.60 - 30th September 2001</b></p>
-    <ul>
-      <li> Support for running RISC OS, by Alex Macfarlane Smith and Peter Naulls
-      <li> Split of the windowing aspects of the code, to allow independent development.
-      <li> Some small speed ups.
-      <li> Source code tidying and warning fixes.
-    </ul>
-  </dd>
-</dl>
-<dl>
-  <dd>
-    <p><b>0.50 - 4th September 1999</b></p>
-  </dd>
-</dl>
-<dl>
-  <dd>
-    <p><b>0.40 - 27th July 1998</b></p>
-  </dd>
-</dl>
-<dl>
-  <dd>For details of older changes, see docs directory.</dd>
-</dl>
 </body>
 </html>
