@@ -36,14 +36,19 @@
   </li>
   <li><a href="#riscosusage">RISC OS specific usage</a></li>
     <ul>
-      <li><a href="riscosusagecommandline">Commandline options</a></li>
-      <li><a href="riscosusagetweakmenu">Tweak menu</a></li>
-      <li><a href="riscosusageperformance">Performance options</a>
+      <li><a href="#riscosusagecommandline">Commandline options</a></li>
+      <li><a href="#riscosusagetweakmenu">Tweak menu</a></li>
+      <li><a href="#riscosusageperformance">Performance options</a>
         <ul>
           <li><a href="#riscosusageperformanceautoupdateflags">Display auto UpdateFlags</a></li>
           <li><a href="#riscosusageperformanceupdateflagsframeskip">Display uses UpdateFlags, Display frameskip</a></li>
         </ul>
       </li>
+    </ul>
+  </li>
+  <li><a href="#x11usage">X11 specific usage</a></li>
+    <ul>
+      <li><a href="#x11environmentoptions">Environment options</a></li>
     </ul>
   </li>
   <li><a href="#issues">Known Issues and bugs</a>
@@ -447,7 +452,7 @@ MFM disc
 
 <p>As mentioned above, there are several options available in the tweak menu to help boost the performance of the display driver. These options are:</p>
 
-<a name="riscosuageperformanceautoupdateflags">
+<a name="riscosusageperformanceautoupdateflags">
 <h5>"Display auto UpdateFlags"</h5>
 </a>
 
@@ -494,7 +499,22 @@ running, or switches to a mode where it doesn't use multiple screen banks
 the frameskip counter becomes important. If you're in a 50Hz mode, and
 the game is running at 25fps, a frameskip counter of 2 would likely be
 the most appropriate. This means that ArcEm will only force the screen to
-be redrawn if the framerate drops to below 17fps.</p> 
+be redrawn if the framerate drops to below 17fps.</p>
+
+<hr>
+
+<a name="x11usage">
+<h3>X11 specific usage</h3>
+</a> <a name="x11environmentoptions">
+<h4>Environment options</h4>
+</a>
+<p>In addition to the main command line options listed above, the X11 version may be tuned using the following environment variables:</p>
+<table border="1">
+<tr><th>Option</th><th>Meaning</th><th>Value</th></tr>
+<tr><td>ARCEMXSYNC</td><td>Use Synchronous X protocol</td><td>Enabled when defined</td></tr>
+<tr><td>ARCEMNOWARP</td><td>Don't attempt to use XWarpPointer</td><td>Enabled when defined</td></tr>
+<tr><td>ARCEMXMOUSEKEY</td><td>Change key used to claim mouse pointer</td><td>Default is Keypad + when not defined. Other values from X11/keysymdef.h</td></tr>
+</table>
 
 <hr>
 
