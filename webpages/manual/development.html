@@ -400,7 +400,7 @@ MFM disc
 <h5>ArcEmSupport module</h5>
 <p>Make sure the file support,ffa is copied or 'symlinked' from the 'support_modules/support' directory into the 'extnrom' directory.</p>
 
-<p>The ArcEmSupport module is a simple module that provides the *command ArcEm_Shutdown that allows the emulator to kill itself and return to the host OS. This *command is also available via the SWI ArcEm_Shutdown (&56AC0).</p>
+<p>The ArcEmSupport module is a simple module that provides the *command ArcEm_Shutdown that allows the emulator to kill itself and return to the host OS. This *command is also available via the SWI ArcEm_Shutdown (&amp;56AC0).</p>
 
 <hr>
 
@@ -414,7 +414,7 @@ MFM disc
 <table border="1">
 <tr><th>Option</th><th>Meaning</th><th>Allowed values</th><th>Default Value</th></tr>
 <tr><td>--display&nbsp;&lt;value&gt;</td><td>Select the display driver to use on startup. 'pal' selects the palettised display driver, which uses the least amount of memory and provides the best performance. However it doesn't support the use of mid-frame palette swaps (as used by games such as Lotus II &amp; Lemmings 2). For these games it's recommended you use the '16bpp' driver</td><td>pal, 16bpp</td><td>pal</td></tr>
-<tr><td>--rbswap</td><td>Swap red & blue in 16bpp mode (e.g. for Iyonix with GeForce FX)</td></tr>
+<tr><td>--rbswap</td><td>Swap red &amp; blue in 16bpp mode (e.g. for Iyonix with GeForce FX)</td></tr>
 <tr><td>--nolowcolour</td><td>Prevent ArcEm from trying to use 1/2/4bpp modes. Recommended for Iyonix users with Aemulor running (it's quicker for ArcEm to use an 8bpp mode directly than to go via Aemulor's low-colour emulation)</td></tr>
 <tr><td>--noaspect</td><td>Disable aspect ratio correction</td></tr>
 <tr><td>--noupscale</td><td>Disable upscaling. Recommended for best performance.</td></tr>
@@ -432,7 +432,7 @@ MFM disc
  <li>Switch between the two display drivers (--display command line option)</li>
  <li>Toggle red/blue swapping in the 16bpp driver (--rbswap command line option)</li>
  <li>Control the display driver performance options (see below)</li>
- <li>Enable/disable aspect ratio correction & upscaling (--noaspect and --noupscale options)</li>
+ <li>Enable/disable aspect ratio correction &amp; upscaling (--noaspect and --noupscale options)</li>
  <li>Enable the ability to take screenshots when Print Screen is pressed. Screenshots will be saved to the directory !ArcEm is in.</li>
  <li>Toggle the display of some stats to the top-left corner of the screen. The stats show (from left to right):
   <ul>
@@ -453,21 +453,21 @@ MFM disc
 <p>As mentioned above, there are several options available in the tweak menu to help boost the performance of the display driver. These options are:</p>
 
 <a name="riscosusageperformanceautoupdateflags">
-<h5>"Display auto UpdateFlags"</h5>
+<h5>&quot;Display auto UpdateFlags&quot;</h5>
 </a>
 
-<p>Setting this to "On" will boost the performance of many games. However it
+<p>Setting this to &quot;On&quot; will boost the performance of many games. However it
 may not work properly with some games/software (screen updates may be
-somewhat irratic), so by default it's set to "Off".</p>
+somewhat irratic), so by default it's set to &quot;Off&quot;.</p>
 
 <a name="riscosusageperformanceupdateflagsframeskip">
-<h5>"Display uses UpdateFlags", "Display frameskip"</h5>
+<h5>&quot;Display uses UpdateFlags&quot;, &quot;Display frameskip&quot;</h5>
 </a>
 
-<p>If the "auto UpdateFlags" option is on, these options will be set and
+<p>If the &quot;auto UpdateFlags&quot; option is on, these options will be set and
 adjusted automatically by the emulator, and must be left alone.</p>
 
-<p>If the "auto UpdateFlags" option is off, you can set these values manually
+<p>If the &quot;auto UpdateFlags&quot; option is off, you can set these values manually
 to fine-tune performance. Briefly, the UpdateFlags option controls whether
 ArcEm redraws the entire screen or only the changed areas. Turning it on
 selects the latter, but causes some memory writes to have a significant
@@ -562,7 +562,7 @@ be redrawn if the framerate drops to below 17fps.</p>
 </a>
 <p>Sound quality isn't great if ArcEm has to mix down to a lower sample rate</p>
 <p>Music tempo tends to fluctuate a bit with some music players</p>
-<p>Sometimes there'll be a lot of audio lag, which doesn't clear up, even after a few seconds. Opening & closing the tweak menu (by pressing both Windows keys) should fix it.</p>
+<p>Sometimes there'll be a lot of audio lag, which doesn't clear up, even after a few seconds. Opening &amp; closing the tweak menu (by pressing both Windows keys) should fix it.</p>
 <p>If the emulator can't find a suitable screen mode, it will quit.</p>
 <p>If the display is being scaled, the mouse pointer image may not always be scaled correctly, or (due to improper scaling) the hotspot may not be in the correct position.</p>
 
