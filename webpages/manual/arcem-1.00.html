@@ -29,9 +29,7 @@
      <li><a href="#knownall">All platforms</a></li>
      <li><a href="#knownX">Unix/X Windows</a></li>
      <li><a href="#knownWIN32">Microsoft Windows</a></li>
-     <li><a href="#knownOSX">Mac OS X</a></li>
      <li><a href="#knownRO">RISC OS</a></li>
-     <li><a href="#knownAMIGA">Amiga</a></li>
    </ul></li>
 </ul>
 <hr>
@@ -48,14 +46,8 @@ Once installed all versions require a ROM image file, see below
   <li><b>Microsoft Windows</b>
     <p>Extract the archive and supply a ROM image, the program is called ArcEm.exe. Create a shortcut to this file if you want to add it to your start menu or desktop.</p>
   </li>
-  <li><b>Mac OS X</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
   <li><b>RISC OS</b>
     <p>Please see the !Help file within the !ArcEm application for usage information.</p>
-  </li>
-  <li><b>Amiga</b>
-    <p>Extract the archive to any directory you choose, just add a file called ROM as described below.</p>
   </li>
 </ul>
 <hr>
@@ -86,9 +78,6 @@ Once installed all versions require a ROM image file, see below
     provided for this in the 'vc' directory.
     </p>
   </li>
-  <li><b>Mac OS X</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
   <li><b>RISC OS</b>
     <p> ArcEm builds with GCC. You should use the following command:
     <pre>
@@ -102,15 +91,6 @@ Once installed all versions require a ROM image file, see below
      CC=/home/riscos/cross/bin/gcc make SYSTEM=riscos-single
    </pre>
     The desktop version of ArcEm has not been developed yet, and will not build.
-    </p>
-  </li>
-  <li><b>Amiga</b>
-    <p>You will need the official Amiga OS4 SDK and GCC, then build with the following commands:
-<pre>
-stack 500000
-make SYSTEM=amiga
-</pre>
-   It will not compile with anything other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.
     </p>
   </li>
 </ul>
@@ -147,19 +127,12 @@ using this command.
     <p>From a cmd.exe command prompt</p>
     <pre>copy /b ROM1+ROM2+ROM3+ROM4 ROM</pre>
   </li>
-  <li><b>Mac OS X</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
   <li><b>RISC OS</b>
     <p>From the command line</p>
     <pre>print ROM1 { &gt; ROM }
 print ROM2 { &gt;&gt; ROM }
 print ROM3 { &gt;&gt; ROM }
 print ROM4 { &gt;&gt; ROM }</pre>
-  </li>
-  <li><b>Amiga</b>
-    <p>From the commandline</p>
-    <pre>join ROM1 ROM2 ROM3 ROM4 as ROM</pre>
   </li>
 </ul>
 <p>Alternate sources of ROM images, you can download a copy of the RISC OS 3.10
@@ -183,14 +156,8 @@ print ROM4 { &gt;&gt; ROM }</pre>
       to 'capture' and 'free' the mouse for better performance. Currently mouse
       handling on the Windows build is very poor.</p>
   </li>
-  <li><b>Mac OS X</b>
-    <p><font color="#FF0000">TODO</font></p>
-  </li>
   <li><b>RISC OS</b>
     <p>The RISC OS version runs full-screen and captures all mouse input until you quit the program. Pressing the Escape key will quit ArcEm.</p>
-  </li>
-  <li><b>Amiga</b>
-    <p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit ArcEm from the menu you can bring up with the Left Amiga key.</p>
   </li>
 </ul>
 <a name="floppies">
@@ -216,12 +183,6 @@ print ROM4 { &gt;&gt; ROM }</pre>
     but with moving of images around you should be able to change discs at run
     time.</p>
 </li>
-<li><b>Mac OS X</b>
-  <p><font color="#FF0000">TODO</font> Mention the GUI method of selecting disc images.</p>
-</li>
-<li><b>Amiga</b>
-  <p>A menu to change the disc in drive 0 can be called up with the LAmiga key</p>
-</li>
 </ul>
 
 <a name="HDimages">
@@ -231,7 +192,7 @@ HardImage0<br>
 HardImage1<br>
 HardImage2<br>
 HardImage3<br>
-You also need to specify the hard drive "shape" in the arcemrc config file. The "shape" lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
+You also need to specify the hard drive &quot;shape&quot; in the arcemrc config file. The &quot;shape&quot; lists the number of Heads, Cylinders, Sectors and the Record Size, these 4 numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
 <p>In RISC OS, you will also need to use the !Configure application to set the number of hard drives inside that OS.</p>
 
 <a name="arcemrc">
@@ -281,28 +242,10 @@ MFM disc
 <p>ARM Linux does not currently work in the Windows version of
         the emulator. There is an unknown issue with harddrive access.</p>
 
-<a name="knownOSX">
-<h4>Mac OS X</h4>
-</a>
-<p><font color="#FF0000">TODO</font></p>
-
 <a name="knownRO">
 <h4>RISC OS</h4>
 </a>
 <p>The RISC OS version is very slow.</p>
-
-<a name="knownAMIGA">
-<h4>Amiga</h4>
-</a>
-<p>There is no error output when run from Workbench (it appears to do nothing
-when ROM is not found).  You can get the error output by
-starting it from the Shell.</p>
-<p>ArcEm always opens an 8-bit screen even if the emulation requests a lower
-depth.</p>
-<p>There is intentionally no keyboard remapping, keys are mapped based on
-position.</p>
-<p>It will only run full screen, not windowed.</p>
-</p>
 
 </body>
 </html>
