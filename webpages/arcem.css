@@ -1,0 +1,170 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	background: #5065fc;
+	margin: 0 auto;
+	width: 80%;
+	min-width: 480px;
+	max-width: 1200px;
+	font-family: sans-serif;
+}
+
+dl {
+	margin: 1.12em 0;
+	padding: 0;
+}
+
+dt {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	padding-left: 1.2em;
+	margin: 1.12em 0;
+}
+
+ul.indent {
+	padding-left: 2.2em;
+	margin: 1.12em 0;
+}
+
+ul ul, dl ul {
+	margin: 0;
+}
+
+li, li li {
+	margin: 0;
+	padding: 0;
+}
+
+span.todo {
+	color: red;
+}
+
+div.top {
+	background: #5065fc;
+	font-family: sans-serif;
+	color: #fff;
+	border-bottom: 4px solid #d1af00;
+	position: relative;
+}
+
+div.top h1:first-child, div.top p:first-child {
+	font-weight: normal;
+	font-size: 100px;
+	margin: 0;
+	border-bottom: 4px solid #ec0707;
+	white-space: nowrap;
+}
+
+div.top h1 + p, div.top p + p {
+	text-align: right;
+	margin: 0;
+	border: none;
+	position: absolute;
+	top: 138px;
+	right: 2px;
+	white-space: nowrap;
+}
+
+div.top a {
+	text-decoration: none;
+	color: #fff;
+}
+
+div.top img {
+	vertical-align: bottom;
+}
+
+div.below {
+	display: table;
+	width: 100%;
+	border-bottom: 4px solid #5065fc;
+}
+
+div.nav {
+	display: table-cell;
+	background: #a7b2fd;
+	width: 33%;
+	padding: 0.4em;
+	border-right: 4px dotted #dbdfff;
+}
+
+div.nav h2, div.nav h3 {
+	font-size: 100%;
+	font-weight: bold;
+	border-top: 1px solid #dbdfff;
+	padding-top: 1em;	
+}
+
+div.nav p {
+	margin: 0 0 0 1em;
+}
+
+div.main {
+	display: table-cell;
+	background: #a7b2fd;
+	padding: 0.5em;
+}
+
+div.main h2:first-child {
+	border: none;
+	padding: 0;
+}
+
+div.main h2 {
+	border-top: 1px solid #dbdfff;
+	padding-top: 0.4em;
+	clear: both;
+}
+
+div.main h3 {
+	color: #292c3f;
+}
+
+div.main p {
+	margin-left: 1em;
+}
+
+div.main dl {
+	padding: 0;
+	margin-left: 1em;
+}
+
+div.main h1 + dl {
+	padding: 0;
+	margin-left: 0;
+}
+
+div.main dt {
+	color: #52577e;
+	padding: 0;
+	margin: 1em 0 0.2em 0;
+}
+
+div.main dt strong {
+	color: #000;
+}
+
+div.main dd {
+	padding: 0;
+	margin: 0 0 1em 1em;
+}
+
+div.main th {
+	background: #cbd1fe;
+}
+
+div.main td {
+	background: #bac2fb;
+}
+
+div.main p img {
+	float: right;
+	margin: 0 0 1em 1em;
+}

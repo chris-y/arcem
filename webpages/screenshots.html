@@ -1,102 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
- "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>ArcEm - The Acorn System Emulator</title>
-<style type="text/css">
-<!--
-/* Colour scheme is based on the 3 colours of the classic Archimedes logo */
-
-h3 {
-  background-color: #CCFFFF;
-}
-
-h4 {
-  background-color: #FFFFCC;
-}
-
-.red {
-  background-color: #FFCCCC;
-}
-
-#nav a.page {
-	display: block;
-	width: 180px; }
-
-#nav a.section {
-	display: block;
-	padding-left: 1em;
-	font-size: 85%; }
--->
-</style>
+<title>ArcEm - The Acorn Archimedes Emulator</title>
+<link rel="stylesheet" type="text/css" href="arcem.css">
+<link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-<table width="100%">
-  <tr>
-    <td><img alt="ArcEm Logo" src="arcemlogo.png"></td>
-    <td>
-      <h1>ArcEm - The Acorn System Emulator</h1>
-    </td>
-  </tr>
+<div class="top">
+<p><a href="/"><img src="ArcEm.png" title="ArcEm Logo" alt="A">rcEm</a></p>
+<p>Acorn Archimedes Emulator</p>
+</div>
+
+<div class="below">
+<div class="nav">
+<ul>
+<li><a href="index.html">ArcEm Home</a>
+<ul>
+<li><a href="index.html#news">News</a></li>
+<li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#downloads">Downloads</a></li>
+<li><a href="index.html#problems">Having Problems?</a></li>
+</ul>
+</li>
+<li><a href="changelog.html">ChangeLog</a></li>
+<li><a href="developer.html">Developer Information</a>
+<ul>
+<li><a href="developer.html#aims">Development aims</a></li>
+<li><a href="developer.html#resources">Developer Resources</a></li>
+<li><a href="developer.html#featurematrix">Feature Matrix</a></li>
+</ul>
+</li>
+<li><a href="screenshots.html">Screenshots</a></li>
+<li><a href="manual/">User Manual</a>
+<ul>
+<li><a href="manual/arcem-1.00.html">ArcEm 1.00</a>
+<li><a href="manual/development.html">Development</a>
+</ul>
+</li>
+</ul>
+
+<h2>External project links</h2>
+
+<ul>
+<li><a href="http://sourceforge.net/projects/arcem/">ArcEm SourceForge Page</a></li>
+</ul>
+
+<h2>Other useful links</h2>
+
+<ul>
+<li><a href="http://adffs.filecore.net/">ADFFS</a>
+<p>RISC OS Floppy image reader</p></li>
+<li><a href="http://acorn.revivalteam.de/">Wocki's Acorn Site</a>
+<p>All sorts of RISC OS emulation materials</p></li>
+</ul>
+
+</div>
+<div class="main">
+
+<h1 id="screenshots">Screenshots</h1>
+
+<table>
+<tr>
+<td align="center"><a href="screenshots/arcemsshot.png"><img src="screenshots/arcemsshot-thumb.jpg" width="200" height="157" border="0"></a></td>
+<td align="center"><a href="screenshots/hostfsshot.png"><img src="screenshots/hostfsshot-thumb.jpg" width="200" height="150" border="0"></a></td>
+</tr>
+<tr>
+<td align="center">A general shot of ArcEm running under Ubuntu Linux.</td>
+<td align="center">HostFS allows a directory on your Host harddrive to become a RISC OS harddrive.<br>ArcEm also runs under Solaris.</td>
+</tr>
+<tr>
+<td align="center"><a href="screenshots/macosx.jpg"><img src="screenshots/macosx-thumb.jpg" width="200" height="150" border="0"></a></td>
+<td align="center"><a href="screenshots/windows.png"><img src="screenshots/windows-thumb.jpg" width="200" height="162" border="0"></a></td>
+</tr>
+<tr>
+<td align="center">Running on Mac OS X</td>
+<td align="center">On Windows</td>
+</tr>
+<tr>
+<td align="center"><a href="screenshots/amiga.jpg"><img src="screenshots/amiga-thumb.jpg" width="200" height="160" border="0"></a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">On AmigaOS 4.0</td>
+<td></td>
+</tr>
 </table>
-<table width="100%" cellspacing="5" cellpadding="5">
-  <tr>
-    <td valign="top" class="red">
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td valign="top" id="nav">
-            <a class="page" href="index.html">ArcEm Home</a>
-              <a class="section" href="index.html#news">News</a>
-              <a class="section" href="index.html#features">Features</a>
-              <a class="section" href="index.html#downloads">Downloads</a>
-              <a class="section" href="index.html#problems">Having Problems?</a>
-            <a class="page" href="changelog.html">ChangeLog</a>
-            <a class="page" href="developer.html">Developer Information</a>
-               <a class="section" href="developer.html#aims">Development aims</a>
-               <a class="section" href="developer.html#resources">Developer Resources</a>
-               <a class="section" href="developer.html#featurematrix">Feature Matrix</a>
-            <a class="page" href="screenshots.html">Screenshots</a>
-            <a class="page" href="manual/">User Manual</a>
-              <a class="section" href="manual/arcem-1.00.html">ArcEm 1.00</a>
-              <a class="section" href="manual/development.html">Development</a>
-            <p><b>Project&nbsp;Links:</b></p>
-            <a href="http://sourceforge.net/projects/arcem/">SourceForge Page</a>
-          </td>
-        </tr>
-        <tr>
-          <td valign="top" align="center"> <a target="_top" href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=36764" width="88" height="31" border="0" alt="SourceForge Logo"></a> </td>
-        </tr>
-      </table>
-    </td>
-    <td valign="top">&nbsp;
-      <table width="100%" border="1">
-        <tr>
-          <td align="center"><a href="screenshots/arcemsshot.png"><img src="screenshots/arcemsshot-thumb.jpg" width="200" height="157" border="0"></a></td>
-          <td align="center"><a href="screenshots/hostfsshot.png"><img src="screenshots/hostfsshot-thumb.jpg" width="200" height="150" border="0"></a></td>
-        </tr>
-        <tr>
-          <td align="center">A general shot of ArcEm running under Ubuntu Linux.</td>
-          <td align="center">HostFS allows a directory on your Host harddrive to become a RISC OS harddrive.<br>ArcEm also runs under Solaris.</td>
-        </tr>
-        <tr>
-          <td align="center"><a href="screenshots/macosx.jpg"><img src="screenshots/macosx-thumb.jpg" width="200" height="150" border="0"></a></td>
-          <td align="center"><a href="screenshots/windows.png"><img src="screenshots/windows-thumb.jpg" width="200" height="162" border="0"></a></td>
-        </tr>
-        <tr>
-          <td align="center">Running on Mac OS X</td>
-          <td align="center">On Windows</td>
-        </tr>
-        <tr>
-          <td align="center"><a href="screenshots/amiga.jpg"><img src="screenshots/amiga-thumb.jpg" width="200" height="160" border="0"></a></td>
-          <td> </td>
-        </tr>
-        <tr>
-          <td align="center">On AmigaOS 4.0</td>
-          <td> </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+
+</div>
+</div>
 </body>
 </html>

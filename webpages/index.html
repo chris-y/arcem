@@ -1,183 +1,166 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
- "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-<title>ArcEm - The Acorn System Emulator</title>
-<style type="text/css">
-<!--
-/* Colour scheme is based on the 3 colours of the classic Archimedes logo */
-
-h3 {
-  background-color: #CCFFFF;
-}
-
-h4 {
-  background-color: #FFFFCC;
-}
-
-.red {
-  background-color: #FFCCCC;
-}
-
-#nav a.page {
-	display: block;
-	width: 180px; }
-
-#nav a.section {
-	display: block;
-	padding-left: 1em;
-	font-size: 85%; }
-
--->
-</style>
+<title>ArcEm - The Acorn Archimedes Emulator</title>
+<link rel="stylesheet" type="text/css" href="arcem.css">
+<link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-<table width="100%">
-  <tr>
-    <td><img alt="ArcEm Logo" src="arcemlogo.png"></td>
-    <td>
-      <h1>ArcEm - The Acorn System Emulator</h1>
-    </td>
-  </tr>
+<div class="top">
+<h1><a href="/"><img src="ArcEm.png" title="ArcEm Logo" alt="A">rcEm</a></h1>
+<p>Acorn Archimedes Emulator</p>
+</div>
+
+<div class="below">
+<div class="nav">
+<ul>
+<li><a href="index.html">ArcEm Home</a>
+<ul>
+<li><a href="index.html#news">News</a></li>
+<li><a href="index.html#features">Features</a></li>
+<li><a href="index.html#downloads">Downloads</a></li>
+<li><a href="index.html#problems">Having Problems?</a></li>
+</ul>
+</li>
+<li><a href="changelog.html">ChangeLog</a></li>
+<li><a href="developer.html">Developer Information</a>
+<ul>
+<li><a href="developer.html#aims">Development aims</a></li>
+<li><a href="developer.html#resources">Developer Resources</a></li>
+<li><a href="developer.html#featurematrix">Feature Matrix</a></li>
+</ul>
+</li>
+<li><a href="screenshots.html">Screenshots</a></li>
+<li><a href="manual/">User Manual</a>
+<ul>
+<li><a href="manual/arcem-1.00.html">ArcEm 1.00</a>
+<li><a href="manual/development.html">Development</a>
+</ul>
+</li>
+</ul>
+
+<h2>External project links</h2>
+
+<ul>
+<li><a href="http://sourceforge.net/projects/arcem/">ArcEm SourceForge Page</a></li>
+</ul>
+
+<h2>Other useful links</h2>
+
+<ul>
+<li><a href="http://adffs.filecore.net/">ADFFS</a>
+<p>RISC OS Floppy image reader</p></li>
+<li><a href="http://acorn.revivalteam.de/">Wocki's Acorn Site</a>
+<p>All sorts of RISC OS emulation materials</p></li>
+</ul>
+
+</div>
+<div class="main">
+
+<h2>What is ArcEm?</h2>
+
+<p><img src="screenshots/arcemsshot-thumb.jpg" alt="">ArcEm is a portable open-source emulator for the Acorn Archimedes. It's capable of running multiple operating systems including RISC OS and ARM Linux.</p>
+
+<p>ArcEm runs on:</p>
+<ul class="indent">
+<li>Amiga OS</li>
+<li>Mac OS X</li>
+<li>Microsoft Windows</li>
+<li>RISC OS</li>
+<li>Unix (X Windows)</li>
+</ul>
+
+<p>If you're interested in helping the project, check out the <a href="developer.html">developer page</a>.</p>
+
+<h2 id="news">News</h2>
+
+<dl>
+<dt>23rd July 2012 &ndash; <strong>ArcEm 1.50 alpha release</strong></dt>
+<dd>A new alpha build &ndash; <a href="http://sourceforge.net/projects/arcem/files/arcem/1.50-alpha/">ArcEm 1.50 alpha</a> &ndash; is now available for AmigaOS 3, AmigaOS 4, Mac OS X, RISC OS, and Windows.</dd>
+
+<dt>11th June 2012 &ndash; <strong>ArcEm still going</strong></dt>
+<dd>May 2012 saw a push of a large number of updates, significant perforamnce improvements from Jeffrey Lee.</dd>
+
+<dt>9th February 2011 &ndash; <strong>ArcEm (really) isn't dead!</strong></dt>
+<dd>ArcEm continues to live and breathe in random ways.  Latest changes include a GCCSDK RISC OS autobuilt version by Chris Gransden, available, <a href="http://www.riscos.info/packages/EmulationDetails.html">here</a>.</dd>
+</dl>
+
+<h2 id="features">Features</h2>
+
+<h3>New in ArcEm 1.50 alpha</h3>
+<ul>
+<li>VIDC1 sound support on Amiga, RISC OS &amp; Unix/X11</li>
+<li>Emulation of 512kB, 1MB, 2MB, 4MB, 8MB, 12MB, or 16MB of RAM</li>
+<li>Emulation of 'Extension ROMs' as found in the Acorn A4</li>
+<li>ARM3 emulation</li>
+<li>ArcEm clock set from Host's clock, partial RTC support</li>
+<li>Accurate video and timer emulation</li>
+<li>Display upscaling</li>
+<li>Rectangular pixel aspect ratio correction (RISC OS, Windows &amp; X11)</li>
+<li>Significant performance improvements, making ArcEm run better on slow hardware</li>
+<li>When emulating RISC OS:
+<ul>
+<li>HostFS - A RISC OS file system to allow use of a directory on the Host Filing system as a virtual hard drive</li>
+<li>Mouse Scroll wheel support</li>
+<li>Extra video modes, up to 1024x768 in 16 colours and 800x600 in 256 colours</li>
+</ul>
+</li>
+</ul>
+
+<h3>ArcEm 1.00</h3>
+<ul>
+<li>Acorn A400 with ARM 2 processor</li>
+<li>Runs RISC OS and ARM Linux</li>
+<li>4MB of RAM</li>
+<li>Support for .adf floppy disc images</li>
+<li>Support for ST506 hard discs up to 64MB in size</li>
+</ul>
+
+<h2 id="downloads">Downloads</h2>
+
+<h3>ArcEm</h3>
+<p>Remember to check the <a href="manual/">User Manual</a> for installation and compilation information.  Our downloads are available from <a href="http://sourceforge.net/projects/arcem/files/">SourceForge</a>:</p>
+<ul>
+<li><a href="http://sourceforge.net/projects/arcem/files/arcem/1.50-alpha/">Download ArcEm 1.50 alpha</a> (Jul 2012)</li>
+<li><a href="http://sourceforge.net/projects/arcem/files/arcem/1.00/">Download ArcEm 1.00</a> (May 2002)</li>
+</ul>
+
+<p>Source code is in CVS:</p>
+<ul>
+<li><a href="http://sourceforge.net/cvs/?group_id=36764">Get the ArcEm source code</a></li>
+</ul>
+
+<p>Various builds of ArcEm are also available from 3rd party sources:</p>
+<ul>
+<li><a href="http://www.riscos.info/packages/EmulationDetails.html">Download autobuilt RISC OS package</a></li>
+<li><a href="http://homepage.mac.com/mdales/arcem/">Download binary versions for Mac OS X</a></li>
+<li><a href="http://www.aminet.net/package.php?package=misc/emu/arcem_os4.lha">Download latest Amiga version</a></li>
+</ul>
+
+<h3>Support Files</h3>
+<table>
+<tr><th>File</th><th>Download Size</th>
+<th>Harddrive shape (see <a href="manual/">User Manual</a>)</th>
+</tr>
+<tr><td><a href="floppy800.zip">Blank RISC OS formatted 800KB Floppy Disc Image</a></td><td>1.1KB</td><td>&nbsp;</td></tr>
+<tr><td><a href="hform.zip">RISC OS disc with !HForm on, the hard disc formatter</a></td><td>14k</td><td>&nbsp;</td></tr>
+<tr><td><a href="HardImageFC20MB.zip">Blank RISC OS formated 20MB Hard Drive Image</a></td><td>40KB</td><td>612 cylinders 4 heads 32 sectors 256 record size</td></tr>
+<tr><td><a href="HardImageFC64MB.zip">Blank RISC OS formated 64MB Hard Drive Image</a></td><td>65KB</td><td>1024 cylinders 8 heads 32 sectors 256 record size</td></tr>
+<tr><td><!-- <a href="HardDisc64MBLoaded.zip">-->A 64MB RISC OS Hard Drive Image Loaded with programs<!-- </a> --> </td><td><span class="todo">Coming Soon!</span></td><td>1024 cylinders 8 heads 32 sectors 256 record size</td></tr>
+<tr><td><a href="linuxrom.zip">ARMLinux Rom Image</a></td><td>335KB</td><td>2.2 Kernel</td></tr>
+<tr><td><a href="HardImageEXT220MB.zip">ARMLinux ext2 formated 20MB Hard Drive Image, with skeleton Linux distribution.</a></td><td>3.4MB</td><td>612 cylinders 4 heads 32 sectors 256 record size</td></tr>
 </table>
-<table width="100%" cellspacing="5" cellpadding="5">
-  <tr>
-    <td valign="top" class="red">
-      <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td valign="top" id="nav">
-            <a class="page" href="index.html">ArcEm Home</a>
-              <a class="section" href="index.html#news">News</a>
-              <a class="section" href="index.html#features">Features</a>
-              <a class="section" href="index.html#downloads">Downloads</a>
-              <a class="section" href="index.html#problems">Having Problems?</a>
-            <a class="page" href="changelog.html">ChangeLog</a>
-            <a class="page" href="developer.html">Developer Information</a>
-               <a class="section" href="developer.html#aims">Development aims</a>
-               <a class="section" href="developer.html#resources">Developer Resources</a>
-               <a class="section" href="developer.html#featurematrix">Feature Matrix</a>
-            <a class="page" href="screenshots.html">Screenshots</a>
-            <a class="page" href="manual/">User Manual</a>
-              <a class="section" href="manual/arcem-1.00.html">ArcEm 1.00</a>
-              <a class="section" href="manual/development.html">Development</a>
-            <p><b>Project&nbsp;Links:</b></p>
-            <a href="http://sourceforge.net/projects/arcem/">SourceForge Page</a>
-          </td>
-        </tr>
-        <tr>
-          <td valign="top" align="center"> <a target="_top" href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=36764" width="88" height="31" border="0" alt="SourceForge Logo"></a> </td>
-        </tr>
-      </table>
-    </td>
-    <td valign="top">
-      <table border="0">
-        <tr>
-          <td valign="top" colspan="2">
-            <h3>What is ArcEm?</h3>
-          </td>
-        </tr>
-        <tr>
-          <td valign="top">
-            <p>ArcEm is a Acorn A400 hardware emulator that is highly portable,
-              it currently runs on Unix (X Windows), Microsoft Windows, Mac OS X,
-              RISC OS and Amiga OS 4. As it's a hardware emulator it's
-              capable of running multiple operating systems including RISC OS
-              3.10 and ARM Linux. If you're interested in helping out on the project,
-              check out the <a href="developer.html">developer page</a>.</p>
-          </td>
-          <td><a href="screenshots.html"><img src="screenshots/arcemsshot-thumb.jpg" alt="ArcEm Screenshot" width="200" height="157" border="0"></a></td>
-        </tr>
-      </table>
-	  <a name="news"><h3>News</h3></a>
-      <h4>23rd July 2012 - ArcEm 1.50 alpha release</h4>
-      <p>In preperation for the upcoming 1.50 release of ArcEm, a new alpha builds are available from the <a href="http://sourceforge.net/projects/arcem/files/arcem/1.50-alpha/">SourceForge project</a>.  Builds of ArcEm 1.50 alpha are currently available for Amiga OS 3, Amiga OS 4, Mac OS X, RISC OS, and Windows.</p>
 
-      <h4>11th June 2012 - ArcEm still going</h4>
-      <p>May 2012 saw a push of a large number of updates, significant perforamnce improvements from Jeffrey Lee.</p>
+<h2 id="problems">Having Problems?</h2>
 
-      <h4>9th February 2011 - ArcEm (really) isn't dead!</h4>
-      <p>ArcEm continues to live and breathe in random ways.  Latest changes include a
-         GCCSDK RISC OS autobuilt version by Chris Gransden, available, <a href="http://www.riscos.info/packages/EmulationDetails.html">here</a></p>
+<h3>Documentation</h3>
+<p>Please have a read through the <a href="manual/">User manual</a>, to see if it answers your questions.</p>
+<h3>Mailing list</h3>
+<p>Join the user mailing list, <a href="http://lists.sourceforge.net/lists/listinfo/arcem-user">arcem-user</a>, and ask a question there, or check the <a href="http://sourceforge.net/mailarchive/forum.php?forum_id=35961">archives</a> to see if anyone else has had the same problem.</p>
+<h3>Reporting bugs</h3>
+<p>ArcEm uses SourceForge's bug tracking system, you can enter a <a href="http://sourceforge.net/tracker/?group_id=36764&amp;atid=417588">bug report here</a>.</p>
 
-      <h4>12 April 2006 - ArcEm isn't dead!</h4>
-      <p>Contrary to appearances the ArcEm project is alive and well, over the
-        past 18 months many bug fixes and enhancements have been made, including
-        work such as HostFS, Sound support and the port to Amiga. See the features
-        list below. We're preparing for a formal release of this work, but in
-        the meantime feel free to try out a build from CVS, you won't regret
-        it.</p>
-      <h4>7 April 2006 - Amiga port</h4>
-      <p>Chris Young has ported ArcEm to the Amiga OS4.</p>
-      <h4>5 May 2002 - ArcEm 1.00 released</h4>
-      <p>Version 1.00 is the current stable release of ArcEm. <a href="#downloads">Download</a></p>
-      <a name="features"><h3>Features</h3></a>
-      <h4>New in ArcEm 1.50 alpha</h4>
-      <ul>
-        <li>VIDC1 sound support on Amiga, RISC OS &amp; Unix/X11</li>
-        <li>Emulation of 512kB, 1MB, 2MB, 4MB, 8MB, 12MB, or 16MB of RAM</li>
-        <li>Emulation of 'Extension ROMs' as found in the Acorn A4</li>
-        <li>ARM3 emulation</li>
-        <li>ArcEm clock set from Host's clock, partial RTC support</li>
-        <li>Accurate video and timer emulation</li>
-        <li>Display upscaling</li>
-        <li>Rectangular pixel aspect ratio correction (RISC OS, Windows &amp; X11)</li>
-        <li>Significant performance improvements, making ArcEm run better on slow hardware</li>
-        <li>When emulating RISC OS:
-          <ul>
-            <li>HostFS - A RISC OS file system to allow use of a directory on
-              the Host Filing system as a virtual hard drive</li>
-            <li>Mouse Scroll wheel support</li>
-            <li>Extra video modes, up to 1024x768 in 16 colours and 800x600 in 256 colours</li>
-          </ul>
-        </li>
-      </ul>
-      <h4>ArcEm 1.00</h4>
-      <ul>
-        <li>Acorn A400 with ARM 2 processor</li>
-        <li>Runs RISC OS and ARM Linux</li>
-        <li>4MB of RAM</li>
-        <li>Support for .adf floppy disc images</li>
-        <li>Support for ST506 hard discs up to 64MB in size</li>
-      </ul>
-      <a name="downloads"><h3>Downloads</h3></a>
-      <h4>ArcEm</h4>
-	  Remember to check the <a href="manual/">User Manual</a> for installation and compilation information.
-	  <ul>
-	  <li><a href="http://sourceforge.net/project/showfiles.php?group_id=36764">Download version 1.00 binaries for Unix, Windows and RISC OS and Source</a></li>
-          <li><a href="http://www.riscos.info/packages/EmulationDetails.html">Download autobuilt RISC OS package</a></li>
-	  <li><a href="http://homepage.mac.com/mdales/arcem/">Download binary versions for Mac OS X</a></li>
-	  <li><a href="http://www.aminet.net/package.php?package=misc/emu/arcem_os4.lha">Download latest Amiga version</a></li>
-      <li><a href="http://sourceforge.net/cvs/?group_id=36764">Get the latest version from CVS</a></li>
-      </ul>
-      <h4>Support Files</h4>
-      <table border="1">
-	  <tr><th>File</th><th>Download Size</th>
-	  <th>Harddrive shape (see <a href="manual/">User Manual</a>)</th>
-	  </tr>
-	  <tr><td><a href="floppy800.zip">Blank RISC OS formatted 800KB Floppy Disc Image</a></td><td>1.1KB</td><td>&nbsp;</td></tr>
-	  <tr><td><a href="hform.zip">RISC OS disc with !HForm on, the hard disc formatter</a></td><td>14k</td><td>&nbsp;</td></tr>
-	  <tr><td><a href="HardImageFC20MB.zip">Blank RISC OS formated 20MB Hard Drive Image</a></td><td>40KB</td><td>612 cylinders 4 heads 32 sectors 256 record size</td></tr>
-	  <tr><td><a href="HardImageFC64MB.zip">Blank RISC OS formated 64MB Hard Drive Image</a></td><td>65KB</td><td>1024 cylinders 8 heads 32 sectors 256 record size</td></tr>
-	  <tr><td><!-- <a href="HardDisc64MBLoaded.zip">-->A 64MB RISC OS Hard Drive Image Loaded with programs<!-- </a> --> </td><td><font color="#CC0000">Coming Soon!</a></td><td>1024 cylinders 8 heads 32 sectors 256 record size</td></tr>
-	  <tr><td><a href="linuxrom.zip">ARMLinux Rom Image</a></td><td>335KB</td><td>2.2 Kernel</td></tr>
-	  <tr><td><a href="HardImageEXT220MB.zip">ARMLinux ext2 formated 20MB Hard Drive Image, with skeleton Linux distribution.</a></td><td>3.4MB</td><td>612 cylinders 4 heads 32 sectors 256 record size</td></tr>
-	  </table>
-
-      <a name="problems"><h3>Having Problems?</h3></a>      <h4>Documentation</h4>
-      <p>Please have a read through the <a href="manual/">User manual</a>, to see if this answers
-      your questions.</p>
-      <h4>Mailing list</h4>
-      <p>Join the user mailing list,
-        <a href="http://lists.sourceforge.net/lists/listinfo/arcem-user">arcem-user</a>,
-        and ask a question there, or check the
-        <a href="http://sourceforge.net/mailarchive/forum.php?forum_id=35961">archives</a>
-        to see if anyone else has had the same problem.</p>
-      <h4>Reporting bugs</h4>
-      <p>ArcEm uses SourceForge's bug tracking system, you can enter a <a href="http://sourceforge.net/tracker/?group_id=36764&atid=417588">bug report
-        here</a>.</p>
-    </td>
-  </tr>
-</table>
-<p>&nbsp;</p>
+</div>
+</div>
 </body>
 </html>
