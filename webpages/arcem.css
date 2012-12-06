@@ -13,6 +13,11 @@ body {
 	font-family: sans-serif;
 }
 
+a:link { color: #00f; text-decoration: underline; }
+a:visited { color: #00c; text-decoration: underline; }
+a:hover { color: #22f; text-decoration: underline; }
+a:active { color: #f00; text-decoration: none; }
+
 dl {
 	margin: 1.12em 0;
 	padding: 0;
