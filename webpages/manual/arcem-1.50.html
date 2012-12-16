@@ -1,0 +1,627 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ArcEm Development Version Manual</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACNklEQVQoz1VSy4vNcRw95/P93XHneo1GWU0oWZiIEiUpa2aBheSxQNEsZhbI2MmWpYV/wMLKws5GUdY0SihpYsGIO/f3+75fFuOROp3O4pyzOYcnLr0qlQBIIUnKfwICiggBIWVsrN+kXPdND0ARSgUB1IJaUWqtFSXzyIF1Rw8Prt8ZDYfKZNsAAAW1ppxiTDGlnCRnlZLKWe3YNn5wZwTwYQkietAvQopQcinGGK2d1rXr0Gm0LXqqd/XsoLtwmiQA4EcupSGkgsFH54rzKkYVI1IEILcWNpqbN7i4+CcwqnW9UAQVPmTvlbNKa2itOq3mLk+Ov3iqHj3sd11KCVhBXqm1NqSUUoNXxsJaeK9CVqdmJvas/cbZi9A6ltK2rYgOI9P0akNKStl55SysgYPaOz1+5ewkZXNYXjajYXjyWLct0IUQB2RDSErVGGUtHLBl85rb85vy+4X485lv3/j+Vrt7VmsN6JQSgAZkTKI1PNFrcOfahPp233y564FA+JV39uu8mXpJ71LKBBtSrBVbQGL2/IaJsUX3aSEIQoAPCB7OQ2sdQsw5g2wAGY0UiaOHevt3/cxLx02A9wjhH4wxztlaAUpDSjdS26fKmWMufT6pu+Hf7pQQI7yHtdb7AJBAAwr7mLvg2s/3yvC184gBMWF1vpgQA4wxKWWApDQkz88sfXz7fKx9EBNyQs7IGaX85lIQY1x1k8Jzc8vDle+oodYKAMTq1QEQAgIQsqnsCWVi4+QvcYtxGTTYxHsAAAAASUVORK5CYII=">
+<style type="text/css">
+html {
+	margin: 0;
+	padding: 0;
+	background: #c0c0c0;
+}
+
+body {
+	width: 70%;
+	min-width: 480px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1em 1em 3em 1em;
+	background: #d4d4d4;
+	border-left: solid #aaaaaa 1em;
+	border-right: solid #aaaaaa 1em;
+}
+
+ul {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+ul ul, ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+th, td {
+	background: #eeeeee;
+}
+
+pre {
+	padding: 0.5em;
+	border: inset #d5d5d5 2px;
+}
+
+p#version {
+	display: table;
+	width: 100%;
+	border-top: 2px solid #999999;
+	border-bottom: 2px solid #999999;
+	padding: 1px;
+	background: #bbbbbb;
+	white-space: nowrap;
+}
+
+p#version a {
+	text-align: right;
+	display: table-cell;
+}
+
+h2 {
+	margin-top: 2em;
+	border-top: 2px solid #bbbbbb;
+	padding-top: 0.25em;
+}
+
+h2#contents {
+	margin-top: 2em;
+	border-top: none;
+	padding-top: 0;
+}
+
+.todo {
+	color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>ArcEm &ndash; The Acorn Archimedes Emulator</h1>
+
+<p id="version">ArcEm 1.50 Manual <a href="http://arcem.sf.net/">http://arcem.sf.net/</a></p>
+
+
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#requirements">System requirements</a></li>
+<li><a href="#install">Installing ArcEm</a></li>
+<li><a href="#compiling">Compiling ArcEm</a></li>
+<li><a href="using">Using ArcEm</a>
+<ul>
+<li><a href="#romimages">ROM Images</a></li>
+<li><a href="#mouseinput">Mouse Input</a></li>
+<li><a href="#floppies">Using floppies</a></li>
+<li><a href="#HDimages">Using HD images</a></li>
+<li><a href="#commandline">Commandline options</a></li>
+<li><a href="#arcemrc">arcemrc file</a></li>
+<li><a href="#riscosemu">RISC OS emulation</a>
+<ul>
+<li><a href="#riscosemuhostfs">HostFS</a></li>
+<li><a href="#riscosemuscrollwheel">Mouse Scrollwheel support</a></li>
+<li><a href="#riscosemuextramodes">Extra Screen Modes</a></li>
+<li><a href="#riscosemusupport">ArcEmSupport module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#riscosusage">RISC OS specific usage</a>
+<ul>
+<li><a href="#riscosusagecommandline">Commandline options</a></li>
+<li><a href="#riscosusagetweakmenu">Tweak menu</a></li>
+<li><a href="#riscosusageperformance">Performance options</a>
+<ul>
+<li><a href="#riscosusageperformanceautoupdateflags">Display auto UpdateFlags</a></li>
+<li><a href="#riscosusageperformanceupdateflagsframeskip">Display uses UpdateFlags, Display frameskip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#x11usage">X11 specific usage</a>
+<ul>
+<li><a href="#x11environmentoptions">Environment options</a></li>
+</ul>
+</li>
+<li><a href="#issues">Known Issues and bugs</a>
+<ul>
+<li><a href="#knownall">All platforms</a></li>
+<li><a href="#knownX">Unix/X Windows</a></li>
+<li><a href="#knownWIN32">Microsoft Windows</a></li>
+<li><a href="#knownOSX">Mac OS X</a></li>
+<li><a href="#knownRO">RISC OS</a></li>
+<li><a href="#knownAMIGA">Amiga</a></li>
+</ul>
+</li>
+</ul>
+
+<h2 id="requirements">System requirements</h2>
+<dl>
+<dt>Unix/X Windows</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>Microsoft Windows</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>RISC OS</dt>
+<dd>
+<ul>
+<li>Iyonix or better (ARMv5+ CPU). BeagleBoard-xM/PandaBoard recommended for best performance.</li>
+<li>Between 8MB and 64MB of RAM, depending on options</li>
+<li>SharedSound if you want sound</li>
+<li>SharedUnixLibrary</li>
+</ul>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+</dl>
+
+
+<h2 id="install">Installation</h2>
+
+<p>Follow the instructions appropriate for your system:</p>
+<dl>
+<dt>Unix/X Windows</dt>
+<dd>
+<p>Download the src archive and follow the compilation instructions below.  Once compiled copy the arcemrc file to your home directory as .arcemrc.  When run there is some output on the console.</p>
+</dd>
+<dt>Microsoft Windows</dt>
+<dd>
+<p>Extract the archive and supply a ROM image, the program is called ArcEm.exe. Create a shortcut to this file if you want to add it to your start menu or desktop.</p>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>RISC OS</dt>
+<dd>
+<p>Extract the archive to any directory you choose. Once you have a ROM image to use (see below), save it as the file 'ROM' within !ArcEm.</p>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p>Extract the archive to any directory you choose, just add a file called ROM as described below.</p>
+</dd>
+</dl>
+<p><strong>Note:</strong> Once installed all versions require a <a href="#romimages">ROM image</a> file.</p>
+
+
+<h2 id="compiling">Compiling ArcEm</h2>
+
+<p>Follow the instructions appropriate for your system:</p>
+<dl>
+<dt>Unix/X Windows</dt>
+<dd>
+<p>The X windows version compiles up using the 'Makefile' contained in the root of the source package. If you have a big endian processor, such as Sparc or PowerPC edit the HOST_BIGENDIAN=no to HOST_BIGENDIAN=yes near the top of the Makefile.  Use the following command:</p>
+<pre>$ make</pre>
+</dd>
+<dt>Microsoft Windows</dt>
+<dd>
+<p>ArcEm will build under <a href="http://sources.redhat.com/cygwin/">Cygwin</a>.  It builds a version which is independent of Cygwin (unlike the previous version of ArcEm for Windows), so you will also need to ensure you have mingw-runtime library installed (from Cygwin setup). Use the following command:</p>
+<pre>make SYSTEM=win</pre>
+<p>Additionally, ArcEm will build in Microsoft Visual C 6. Project files are provided for this in the 'vc' directory. There are also project files in 'vc' for Microsoft Studio 2005.</p>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>RISC OS</dt>
+<dd>
+<p>ArcEm builds with GCC. You should use the following command:</p>
+<pre>*make SYSTEM=riscos-single</pre>
+<p>It is possible to build with Leo White's RiscXLib if you really want to make an X Windows version under RISC&nbsp;OS, but that is beyond the scope of this guide. Finally, it is also possible to cross compile it using <a href="http://hard-mofo.dsvr.net/gcc/">GCCSDK</a>.  e.g.:</p>
+<pre>$ CC=/home/riscos/cross/bin/gcc make SYSTEM=riscos-single</pre>
+<p>The desktop version of ArcEm has not been developed yet, and will not build.</p>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p>You will need the official Amiga OS4 SDK and GCC, then build with the following commands:</p>
+<pre>
+stack 500000
+make SYSTEM=amiga
+</pre>
+<p>It will not compile with anything other than the OS4 includes. GCC 3.4.4 and 4.0.2 are known to work.</p>
+</dd>
+</dl>
+
+
+<h2 id="using">Using ArcEm</h2>
+
+<h3 id="romimages">ROM images</h3>
+
+<p>As ArcEm is only a hardware emulator to make it do anything useful you need an operating system ROM. ArcEm has been tested with and is known to work with ARM Linux, RISC OS 3.10, RISC OS 3.11 and RISC OS 3.19. ARM Linux ROMs are freely available, check the website. RISC OS 3.1x ROMs can be extracted from a real Acorn machine using the following commands on RISC OS.</p>
+<pre>
+*save :0.$.ROM1 3800000 3880000
+*save :0.$.ROM2 3880000 3900000
+*save :0.$.ROM3 3900000 3980000
+*save :0.$.ROM4 3980000 3a00000
+</pre>
+<p>Copy these files to your host operating system, RISC OS 3.1x supports DOS formatted floppy discs so you can use them to transfer the files. ArcEm needs the ROM file to be in one part (rather than the four you just created) so join them back together using the appropriate command for your system:</p>
+<dl>
+<dt>Unix/XWindows</dt>
+<dd>
+<p>From a shell prompt:</p>
+<pre>$ cat ROM1 ROM2 ROM3 ROM4 &gt; ROM</pre>
+</dd>
+<dt>Windows</dt>
+<dd>
+<p>From a cmd.exe command prompt:</p>
+<pre>copy /b ROM1+ROM2+ROM3+ROM4 ROM</pre>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>RISC OS</dt>
+<dd>
+<p>From the command line:</p>
+<pre>
+*print ROM1 { &gt; ROM }
+*print ROM2 { &gt;&gt; ROM }
+*print ROM3 { &gt;&gt; ROM }
+*print ROM4 { &gt;&gt; ROM }
+</pre>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p>From the commandline</p>
+<pre>join ROM1 ROM2 ROM3 ROM4 as ROM</pre>
+</dd>
+</dl>
+
+<h4>Alternate sources of ROM images</h4>
+<p>you can download a copy of the RISC OS 3.10 ROM image as a support file from the <a href="http://home.tiscali.nl/~jandboer/">!A310emu website</a>, it's in the file <a href="http://home.tiscali.nl/~jandboer/support2.zip">support2.zip</a> and is called ro310, you should rename ro310 to ROM before using it with ArcEm.</p>
+
+
+<h3 id="mouseinput">Mouse Input</h3>
+
+<p>Some of the platforms require specific instructions to let you move the mouse around.</p>
+<dl>
+<dt>Unix/X Windows</dt>
+<dd>
+<p>Whilst the Main display window has the focus, press the + key on the numeric keypad to 'capture' the mouse. To 'free' the mouse again for use with the rest of your X desktop press numeric keypad + again.</p>
+</dd>
+<dt>Windows</dt>
+<dd>
+<p>Although there is some mouse movement when you move the cursor over the display window, you can use the Unix/XWindows style numeric keypad + toggle to 'capture' and 'free' the mouse for better performance. Currently mouse handling on the Windows build is very poor.</p>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span></p>
+</dd>
+<dt>RISC OS</dt>
+<dd>
+<p>The RISC OS version runs full-screen and captures all mouse input until you quit the program. You can quit ArcEm from the menu you can bring up by pressing both Windows keys, or by pressing Alt-Break.</p>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p>The Amiga version runs full-screen and captures all mouse input until you quit the program. You can quit ArcEm from the menu you can bring up with the Left Amiga key.</p>
+</dd>
+</dl>
+
+
+<h3 id="floppies">Using floppies</h3>
+
+<p>All the platforms support using .adf format floppy disc images. A disc image is a binary dump of the contents of a floppy disc. ArcEm has no support for directly using the host computers real floppy disc drive.</p>
+<p>The basic support for floppy discs is to allow you to have the following floppy disc images in the current working directory of the ArcEm executable:</p>
+<ul>
+<li>FloppyImage0</li>
+<li>FloppyImage1</li>
+<li>FloppyImage2</li>
+<li>FloppyImage3</li>
+</ul>
+<p>These are then available under RISC OS as the four disc drives ADFS:0 to ADFS:3.  On Linux they are accessible as <span class="todo">TODO</span>.</p>
+<p>Some platforms provide extra support for using floppy discs:</p>
+<dl>
+<dt>Unix/XWindows</dt>
+<dd>
+<p>Whilst the control pane window has the focus, pressing 0, 1, 2 or 3 will eject/insert floppy disc images, those images still have to be named as above, but with moving of images around you should be able to change discs at run time.</p>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<p><span class="todo">TODO</span> Mention the GUI method of selecting disc images.</p>
+</dd>
+<dt>Amiga</dt>
+<dd>
+<p>A menu to change the disc in drive 0 can be called up with the LAmiga key</p>
+</dd>
+</dl>
+
+
+<h3 id="HDimages">Using HD images</h3>
+
+<p>ArcEm supports up to four Harddiscs, hard disc images are binary files that represent a hard drive's contents. ArcEm support the ST506 disc interface from Archimedes computers allowing it to support drives up to 64MB in size. Hard drive images should be placed in the current working directory of ArcEm and be named:</p>
+<ul>
+<li>HardImage0</li>
+<li>HardImage1</li>
+<li>HardImage2</li>
+<li>HardImage3</li>
+</ul>
+<p>You also need to specify the hard drive &quot;shape&quot; in the arcemrc config file. The &quot;shape&quot; lists the number of Heads, Cylinders, Sectors and the Record Size, these four numbers multiplied together are equal to the size in bytes of the hard drive image.</p>
+<p>When emulating RISC OS, you will also need to use the !Configure application to set the number of hard drives within the OS.</p>
+
+
+<h3 id="commandline">Commandline options</h3>
+
+<p>ArcEm supports commandline options under Unix/X Windows and other platforms.  The Amiga version will also accept them as tooltypes.</p>
+
+<table>
+<tr><th>Option</th><th>Meaning</th><th>Allowed values</th><th>Default Value</th></tr>
+<tr><td>--help</td><td>Display list of available options and exit</td></tr>
+<tr><td>--version</td><td>Display version number and exit</td></tr>
+<tr><td>--rom&nbsp;&lt;value&gt;</td><td>Specify the name of a romimage other than ROM</td><td>Path from place of execution to ROM image</td><td>ROM</td></tr>
+<tr><td>--extnromdir&nbsp;&lt;value&gt;</td><td>Specify the directory to use as the extnrom directory</td><td>Path from place of execution for extnrom dir</td><td>extnrom/</td></tr>
+<tr><td>--hostfsdir&nbsp;&lt;value&gt;</td><td>Specify the directory to use as the base of hostfs</td><td>Path from place of execution to base of hostfs</td><td>hostfs/</td></tr>
+<tr><td>--memory&nbsp;&lt;value&gt;</td><td>Change the amount of memory the emulated machine has</td><td>256K 512K 1M 2M 4M 8M 12M 16M</td><td>4M</td></tr>
+<tr><td>--processor</td><td>Change the emulated machine's processor</td><td>ARM2 ARM3 ARM250</td><td>ARM250</td></tr>
+</table>
+
+
+<h3 id="arcemrc">arcemrc file</h3>
+
+<p>The arcemrc files stores information about the number and 'shape' of harddisc's attached to the emulated machine. Here is an example arcemrc:</p>
+<pre>
+MFM disc
+1 1024 8 32 256
+MFM disc
+2 612 4 32 256
+</pre>
+<p>The five numbers represent the following:</p>
+<ol>
+<li>Hard drive number: 0 to 3 inclusive.</li>
+<li>Number of Cylinders: 1 to 1024 inclusive.</li>
+<li>Number of Heads: 1 to 256 inclusive.</li>
+<li>Number of Sectors per track: 1 to 256 inclusive.</li>
+<li>Sector Length: 256, 512, 1024, 2048, or 4096.</li>
+</ol>
+<p>For the premade hard drive images available on the website the shape information should be available. For your own harddiscs that you have imaged you should check the Harddrive itself, as the number of cylinders, sectors and heads is normally printed on it.</p>
+
+<h3 id="riscosemu">RISC OS emulation</h3>
+
+<p>This section details functionality that is only relevant when ArcEm is running RISC OS, it does not apply for ARM Linux.</p>
+
+<h4 id="riscosemuhostfs">HostFS</h4>
+
+<p>Make sure the files hostfs,ffa, hostfsfiler,ffa and support,ffa are copied or 'sym-linked' from their support_modules sub directories into the 'extnrom' directory.</p>
+<p>Create a directory called 'hostfs' in your executable directory, if it does not exist already. This directory is the root of the 'virtual harddisc'. (You can override this directory and put it in a different place with a commandline option).
+<p>When you boot up RISC OS 3.1x there should be a HostFS icon in the bottom left of the screen, clicking this will open up the host filing system and behaves in the same manner as a real Archimedes harddisc.</p>
+<p>Simply copy files on your host into the hostfs directory and they will be available to RISC OS.</p>
+<p>For non-RISC OS hosts:</p>
+<ul>
+<li>RISC OS filetypes are written to the host in the style of NFS mounts on Unix with a ,XXX on the end, eg a spritefile would appear to be spritefile,ff9.</li>
+<li>Files copied into the hostfs directory are unlikely to have their RISC OS filetypes, use the RISC OS 'set type ' function in the filer.</li>
+<li>Extracting archives (zip, etc) within emulated RISC OS will preserve RISC OS filetypes automatically.</li>
+</ul>
+
+<p>Known Issues:</p>
+<ul>
+<li>Files on the host side are not allowed to have dollars in the filename, eg 'textfile$' would not work, but 'textfile' would be fine.</li>
+<li>Errors that occur when performing actions on the host filing system are often not well reported under RISC OS.</li>
+</ul>
+
+<h4 id="riscosemuscrollwheel">Mouse Scrollwheel support</h4>
+
+<p>Make sure the file scrollwheel,ffa is copied or 'symlinked' from the 'support_modules/scrollwheel' directory into the 'extnrom' directory.</p>
+<p>Spinning the scrollwheel up and down in RISC OS over windows that are vertically scrollable works in the way you'd expect.</p>
+
+<p>Known Issues:</p>
+<ul>
+<li>Only works in the Unix/X Windows, MS Windows and Amiga builds of ArcEm.</li>
+</ul>
+
+<h4 id="riscosemuextramodes">Additional Screen modes</h4>
+
+<p>Make sure the file ArcemModes,ffa is copied or 'symlinked' from the 'support_modules/modes' directory into the 'extnrom' directory.</p>
+<p>Once the module is loaded these modes can be chosen in the normal RISC OS way, by typing:</p>
+<pre>*wimpmode &lt;number&gt;</pre>
+
+<p>Here's a list of provided modes</p>
+<table>
+<tr><th>Mode Number</th><th>X</th><th>Y</th><th>colours</th></tr>
+<tr><td>32</td><td>800</td><td>600</td><td>256</td></tr>
+<tr><td>100</td><td>1024</td><td>768</td><td>2</td></tr>
+<tr><td>101</td><td>1024</td><td>768</td><td>4</td></tr>
+<tr><td>102</td><td>1024</td><td>768</td><td>16</td></tr>
+<tr><td>104</td><td>1280</td><td>1016</td><td>2</td></tr>
+<tr><td>105</td><td>1280</td><td>1016</td><td>4</td></tr>
+<tr><td>108</td><td>1152</td><td>864</td><td>2</td></tr>
+<tr><td>109</td><td>1152</td><td>864</td><td>4</td></tr>
+<tr><td>112</td><td>1400</td><td>520</td><td>16</td></tr>
+<tr><td>120</td><td>1600</td><td>600</td><td>16</td></tr>
+<tr><td>122</td><td>240</td><td>320</td><td>2</td></tr>
+<tr><td>123</td><td>240</td><td>320</td><td>4</td></tr>
+<tr><td>124</td><td>240</td><td>320</td><td>16</td></tr>
+<tr><td>125</td><td>240</td><td>320</td><td>256</td></tr>
+</table>
+
+<p>Known Issues:</p>
+<ul>
+<li>Modes larger than 800x600 will only work under Unix/X Windows, Amiga and RISC OS builds of ArcEm, however modes 32, 122, 123, 124 and 125 will work on all platforms.</li>
+<li>Mode 122 is slightly buggy and looks very odd.</li>
+</ul>
+
+<h4 id="riscosemusupport">ArcEmSupport module</h4>
+
+<p>Make sure the file support,ffa is copied or 'symlinked' from the 'support_modules/support' directory into the 'extnrom' directory.</p>
+
+<p>The ArcEmSupport module is a simple module that provides the *command ArcEm_Shutdown that allows the emulator to kill itself and return to the host OS. This *command is also available via the SWI ArcEm_Shutdown (&amp;56AC0).</p>
+
+
+<h2 id="riscosusage">RISC OS specific usage</h2>
+
+<h3 id="riscosusagecommandline">Commandline options</h3>
+
+<p>In addition to the main command line options listed above, the RISC OS version supports the following additional options:</p>
+
+<table>
+<tr><th>Option</th><th>Meaning</th><th>Allowed values</th><th>Default Value</th></tr>
+<tr><td>--display&nbsp;&lt;value&gt;</td><td>Select the display driver to use on startup. 'pal' selects the palettised display driver, which uses the least amount of memory and provides the best performance. However it doesn't support the use of mid-frame palette swaps (as used by games such as Lotus II &amp; Lemmings 2). For these games it's recommended you use the 'std' driver</td><td>pal, std</td><td>pal</td></tr>
+<tr><td>--rbswap</td><td>Swap red &amp; blue in 16bpp mode (e.g. for Iyonix with GeForce FX)</td></tr>
+<tr><td>--nolowcolour</td><td>Prevent ArcEm from trying to use 1/2/4bpp modes. Recommended for Iyonix users with Aemulor running (it's quicker for ArcEm to use an 8bpp mode directly than to go via Aemulor's low-colour emulation)</td></tr>
+<tr><td>--noaspect</td><td>Disable aspect ratio correction</td></tr>
+<tr><td>--noupscale</td><td>Disable upscaling. Recommended for best performance.</td></tr>
+<tr><td>--minres&nbsp;&lt;x&gt;&nbsp;&lt;y&gt;</td><td>Specifiy minimum screen resolution to use. Any modes with a resolution lower than this won't be used by ArcEm. Use this to filter out any low-res modes (e.g. 320x256) which have entries in your MDF but don't really work properly with your monitor.</td></tr>
+<tr><td>--lcdres&nbsp;&lt;x&gt;&nbsp;&lt;y&gt;</td><td>Specify the native resolution of your monitor. If specified, ArcEm will only ever use screen modes that will scale perfectly to fit your monitor, so you won't have ugly LCD scaling artifacts.</td></tr>
+<tr><td>--lcdres&nbsp;&lt;a&gt;&nbsp;&lt;b&gt;</td><td>Specify the key numbers of the two keys used to access the tweak menu. These are &quot;lowl-level internal key numbers&quot; - for a reference, see the <a href="http://www.riscosopen.org/wiki/documentation/show/Low-Level%20Internal%20Key%20Numbers">ROOL wiki</a>.</td><td>0-255</td><td>104 105 (Left &amp; right Windows keys)</td></tr>
+</table>
+
+
+<h3 id="riscosusagetweakmenu">Tweak menu</h3>
+
+<p>The tweak menu can be accessed by simultaneously pressing both Windows keys on the keyboard. This menu allows you to change the following options:</p>
+<ul>
+<li>Switch between the two display drivers (--display command line option)</li>
+<li>Toggle red/blue swapping in the 16bpp modes (--rbswap command line option)</li>
+<li>Control the display driver performance options (see below)</li>
+<li>Enable/disable aspect ratio correction &amp; upscaling (--noaspect and --noupscale options)</li>
+<li>Enable the ability to take screenshots when Print Screen is pressed. Screenshots will be saved to the directory !ArcEm is in.</li>
+<li>Toggle the display of some stats to the top-left corner of the screen. The stats show (from left to right):
+<ul>
+<li>The emulator performance in MHz</li>
+<li>The resolution, refresh rate, and bits-per-pixel of the Arc display</li>
+<li>The display scale factors</li>
+<li>The estimated framerate of whichever game is running</li>
+</ul>
+Note that games or software which doesn't make use of multiple screen banks will report a framerate of zero. If the UpdateFlags option is on, the framerate counter will also drop if the frameskip value is set too high (since you will no longer be seeing all the frames that the software is attempting to display).
+</li>
+</ul>
+
+<p>To resume the emulator from the tweak menu, press 'R'. To quit the emulator, press 'Q'.</p>
+
+<p>The --menukeys command line option can be used to change which keys are used to open the menu (e.g. if your keyboard doesn't have both Windows keys).</p>
+
+<h3 id="riscosusageperformance">Performance options</h3>
+
+<p>As mentioned above, there are several options available in the tweak menu to help boost the performance of the display driver. These options are:</p>
+
+<h4 id="riscosusageperformanceautoupdateflags">&quot;Display auto UpdateFlags&quot;</h4>
+
+<p>Setting this to &quot;On&quot; will boost the performance of many games. However it
+may not work properly with some games/software (screen updates may be
+somewhat irratic), so by default it's set to &quot;Off&quot;.</p>
+
+<h4 id="riscosusageperformanceupdateflagsframeskip">&quot;Display uses UpdateFlags&quot;, &quot;Display frameskip&quot;</h4>
+
+<p>If the &quot;auto UpdateFlags&quot; option is on, these options will be set and
+adjusted automatically by the emulator, and must be left alone.</p>
+
+<p>If the &quot;auto UpdateFlags&quot; option is off, you can set these values manually
+to fine-tune performance. Briefly, the UpdateFlags option controls whether
+ArcEm redraws the entire screen or only the changed areas. Turning it on
+selects the latter, but causes some memory writes to have a significant
+performance overhead, since ArcEm must track all writes to screen memory.
+In games which make use of multiple screen banks, it's usually best to turn
+this option off, as it will avoid the unnecessary performance penalty of
+tracking memory writes (since the entire screen will have to be redrawn
+each time the game switches screen banks). However if the option is off the
+correct frameskip value must be set otherwise you won't see any performance
+benefits.</p>
+
+<p>The frameskip option behaves slightly differently depending on whether the
+UpdateFlags option is on or off. If the UpdateFlags option is on, the
+frameskip value acts like the frameskip value you'd find in any other
+emulator. A value of 0 causes the screen to be updated every frame; 1
+causes it to be updated every 2nd frame, etc. E.g. if you're in a 50Hz
+screen mode, and a game is running at 25fps, a frameskip value of 1 will
+give you a slight performance boost without hurting framerate. Values of 2
+or more will give greater performance boosts, but will result in the screen
+being redrawn less often.</p>
+
+<p>If the UpdateFlags option is off, then there are generally two situations
+in which the screen will be redrawn: when the running game switches to a
+different screen bank, or when the frameskip counter runs down. Assuming
+the game keeps running and keeps swapping screen banks, the frame skip
+counter is irrelevant, as it will never run down. However if the game stops
+running, or switches to a mode where it doesn't use multiple screen banks
+(e.g. in menu screens) the screen will stop being redrawn. This is where
+the frameskip counter becomes important. If you're in a 50Hz mode, and
+the game is running at 25fps, a frameskip counter of 2 would likely be
+the most appropriate. This means that ArcEm will only force the screen to
+be redrawn if the framerate drops to below 17fps.</p>
+
+
+<h2 id="x11usage">X11 specific usage</h2>
+
+<h3 id="x11environmentoptions">Environment options</h3>
+
+<p>In addition to the main command line options listed above, the X11 version may be tuned using the following environment variables:</p>
+
+<table>
+<tr><th>Option</th><th>Meaning</th><th>Value</th></tr>
+<tr><td>ARCEMXSYNC</td><td>Use Synchronous X protocol</td><td>Enabled when defined</td></tr>
+<tr><td>ARCEMNOWARP</td><td>Don't attempt to use XWarpPointer</td><td>Enabled when defined</td></tr>
+<tr><td>ARCEMXMOUSEKEY</td><td>Change key used to claim mouse pointer</td><td>Default is Keypad + when not defined. Other values from X11/keysymdef.h</td></tr>
+</table>
+
+
+<h2 id="issues">Known Issues and bugs</h2>
+
+<h3 id="knownall">All platforms</h3>
+
+<ul>
+<li>256K RAM emulation is currently disabled as we haven't been able to confirm its operation with any versions of RISC OS.</li>
+<li>All interlaced modes are displayed at their logical resolution, this means displays in some modes appear to be half the height they would appear on real monitors.</li>
+<li>Unknown emulation bugs result in the following software not working:
+<ul>
+<li>!ArctDemo</li>
+<li>!Diggers (original Arc version)</li>
+<li>!Symposium</li>
+</ul>
+</li>
+<li>Sound may break up if there are sudden changes in emulator load/performance, or when performing slow operations via HostFS</li>
+<li>Software which adjusts the size of the display/border areas might not look correct. E.g. SR2000, Warlocks</li>
+<li>Formatting floppies seems to be broken.</li>
+<li>Empty floppy drives aren't emulated correctly.</li>
+</ul>
+
+
+<h3 id="knownX">Unix/X Windows</h3>
+
+<ul>
+<li>?</li>
+</ul>
+
+
+<h3 id="knownWIN32">Microsoft Windows</h3>
+
+<ul>
+<li>The version 1.00 binary is very unstable and crashes regularly.</li>
+<li>The only menu items that do anything are Quit and About.</li>
+<li>The mouse handling is very poor.</li>
+<li>The Windows version has no diagnostics if anything goes wrong and will quite without warning (unless you rebuild with a console).</li>
+<li>ARM Linux does not currently work in the Windows version of the emulator. There is an unknown issue with harddrive access.</li>
+</ul>
+
+
+<h3 id="knownOSX">Mac OS X</h3>
+
+<ul>
+<li><span class="todo">TODO</span></li>
+</ul>
+
+
+<h3 id="knownRO">RISC OS</h3>
+
+<ul>
+<li>Sound quality isn't great if ArcEm has to mix down to a lower sample rate</li>
+<li>Music tempo tends to fluctuate a bit with some music players</li>
+<li>Sometimes there'll be a lot of audio lag, which doesn't clear up, even after a few seconds. Opening &amp; closing the tweak menu should fix it.</li>
+<li>If the emulator can't find a suitable screen mode, it will quit.</li>
+<li>If the display is being scaled, the mouse pointer image may not always be scaled correctly, or (due to improper scaling) the hotspot may not be in the correct position.</li>
+</ul>
+
+
+<h3 id="knownAMIGA">Amiga</h3>
+
+<ul>
+<li>There is no error output when run from Workbench (it appears to do nothing when ROM is not found).  You can get the error output by starting it from the Shell.</li>
+<li>ArcEm always opens an 8-bit screen even if the emulation requests a lower depth.</li>
+<li>There is intentionally no keyboard remapping, keys are mapped based on position.</li>
+<li>It will only run full screen, not windowed.</li>
+</ul>
+
+</body>
+</html>
